@@ -1,0 +1,1642 @@
+[
+    {
+        "query": "Show me the count of distinct candidates, average pay rate, and maximum pay rate for the Healthcare domain",
+        "code_executed": "(df['domain'].str.lower() == 'healthcare')"
+    },
+    {
+        "query": "Show me the count of distinct candidates, average pay rate, and maximum pay rate for the Healthcare domain with active contracts and exclude FTE contract types",
+        "code_executed": "(df['contract_status'] == 'Active') & \\\n(df['domain'].str.lower() == 'healthcare') & \\\n(df['pay_rate_basis'].str.lower() != 'fte')"
+    },
+    {
+        "query": "Show me the count of distinct candidates, average pay rate, and maximum pay rate for the Healthcare domain",
+        "code_executed": "df.query(\"domain.str.casefold() == 'healthcare'\", ignore_case=True)"
+    },
+    {
+        "query": "Show me the count of distinct candidates, average pay rate, and maximum pay rate for the Healthcare domain",
+        "code_executed": "df.query(\"domain.str.lower() == 'healthcare'\")"
+    },
+    {
+        "query": "Give me the count of distinct candidates, average pay rate, and maximum pay rate for the Healthcare domain",
+        "code_executed": "df.query(\"domain.str.lower() == 'healthcare'\", ignore_case=True)"
+    },
+    {
+        "query": "Give me the candidates with Data Center Lead job title and Data Analysis skills",
+        "code_executed": "((df['job_title'].str.lower() == 'data center lead') | (df['domain'].str.lower() == 'data center lead')) & ((df['primary_skills'].str.lower().str.contains('data analysis')) | (df['secondary_skills'].str.lower().str.contains('data analysis'))))"
+    },
+    {
+        "query": "Give me the candidates with Data Center Lead job title ",
+        "code_executed": "df.query('job_title.str.lower() == \"data center lead\"')"
+    },
+    {
+        "query": "Give me the candidates with Healthcare domain",
+        "code_executed": "df.query('domain.str.lower() == \"healthcare\"')"
+    },
+    {
+        "query": "Give me the candidates with healthcare domain",
+        "code_executed": "df.query('domain.str.lower() == \"healthcare\"')"
+    },
+    {
+        "query": "Give me the candidates with GCP architect job title",
+        "code_executed": "df.query(\"job_title.str.contains('GCP Architect', case=False) | domain.str.contains('GCP Architect', case=False)\")"
+    },
+    {
+        "query": "Give me the candidates with GCP Architect job title",
+        "code_executed": "(df['job_title'].str.contains('GCP Architect', case=False)) | (df['domain'].str.contains('GCP Architect', case=False))"
+    },
+    {
+        "query": "Give me the candidates with GCP Architect job title",
+        "code_executed": "((df['job_title'].str.lower() == 'gcp architect') | (df['domain'].str.lower() == 'gcp architect'))"
+    },
+    {
+        "query": "Give the candidates for GCP Architect job title",
+        "code_executed": "((df['job_title'].str.lower() == 'gcp architect') | (df['domain'].str.lower() == 'gcp architect')) & (df['contract_status'] == 'active')"
+    },
+    {
+        "query": "Give the candidates for GCP Architect job title",
+        "code_executed": "df.filter(    (df['job_title'].str.lower().str.contains('architect'))    & (df['domain'].str.lower().str.contains('gcp')))"
+    },
+    {
+        "query": "Give the candidates for Tech Mahindra client",
+        "code_executed": "(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')"
+    },
+    {
+        "query": "Give the candidates for Tech Mahindra client and AT&T end client",
+        "code_executed": "(df[\"client\"].str.lower() == \"tech mahindra\") & (df[\"end_client\"].str.lower() == \"at&t\")"
+    },
+    {
+        "query": "Give the candidates for Tech Mahindra client, AT&T end client and Telecommunications domain",
+        "code_executed": "df.query(    \"client.str.lower() == 'tech mahindra' and end_client.str.lower() == 'att' and domain.str.lower() == 'telecommunications'\")"
+    },
+    {
+        "query": "Give the candidates for Tech Mahindra client, AT&T end client and active contract status",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') & (df['end_client'].str.lower() == 'att') & (df['contract_status'].str.lower() == 'active')]"
+    },
+    {
+        "query": "Give the candidates for Tech Mahindra client, AT&T end client and with active contract status",
+        "code_executed": "df.query(    \"client.str.lower() == 'tech mahindra' & end_client.str.lower() == 'att' & contract_status.str.lower() == 'active'\")"
+    },
+    {
+        "query": "Give the candidates for Tech Mahindra client and with active contract status",
+        "code_executed": "((df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')) & (df['contract_status'] == 'Active')"
+    },
+    {
+        "query": "Give the candidates for Tech Mahindra client, with active contract status and with Content Writer job title",
+        "code_executed": "(    (df['client'].str.lower() == 'tech mahindra')    | (df['end_client'].str.lower() == 'tech mahindra')) & (df['contract_status'] == 'Active') & (    (df['job_title'].str.lower() == 'content writer')    | (df['domain'].str.lower() == 'content writing'))"
+    },
+    {
+        "query": "Give the candidates for Tech Mahindra client, AT&T end client and with active contract status",
+        "code_executed": "((df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'att')) & (df['contract_status'].str.lower() == 'active')"
+    },
+    {
+        "query": "Give the candidates for Network Engineer job title and state TX",
+        "code_executed": "((df['job_title'].str.lower() == 'network engineer') | (df['domain'].str.lower() == 'network engineering')) & (df['candidate_state'].str.lower() == 'tx')"
+    },
+    {
+        "query": "Give the candidates for Network Engineer job title and state CA",
+        "code_executed": "((df['job_title'].str.lower() == 'network engineer') | (df['domain'].str.lower() == 'network engineer')) & (df['candidate_state'].str.lower() == 'ca')"
+    },
+    {
+        "query": "Give the candidates for TMNA end client, VDart Digital/TMNA (Toyota) client and with active contract status",
+        "code_executed": "(    (df['end_client'].str.lower() == 'tmna') | (df['client'].str.lower() == 'vdart digital/tmna (toyota)')) & (df['contract_status'].str.lower() == 'active')"
+    },
+    {
+        "query": "Give the candidates for Tech Mahindra client, AT&T end client and with active contract status",
+        "code_executed": "((df['client'].str.lower() == 'tech mahindra') & (df['end_client'].str.lower() == 'at&t') & (df['contract_status'].str.lower() == 'active'))"
+    },
+    {
+        "query": "Give the candidates for HCL client, Fed Ex end client and with active contract status",
+        "code_executed": "df.query(\"client.str.lower() == 'hcl' and end_client.str.lower() == 'fed ex' and contract_status == 'active'\")"
+    },
+    {
+        "query": "Give the candidates for HCL client, Fed Ex end client and with active contract status",
+        "code_executed": "df.query(\"client.str.contains('HCL', case=False) & end_client.str.contains('Fed Ex', case=False) & contract_status == 'active'\")"
+    },
+    {
+        "query": "Give the candidates for HCL client, Fed Ex end client and with active contract status",
+        "code_executed": "df.query(\"client.str.contains('HCL', case=False) & end_client.str.contains('Fed Ex', case=False) & contract_status == 'active'\")"
+    },
+    {
+        "query": "Give the candidates for HCL client with active contract status",
+        "code_executed": "((df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')) & (df['contract_status'] == 'Active')"
+    },
+    {
+        "query": "Give the candidates for HCL client, Google end client with active contract status",
+        "code_executed": "(df['client'].str.lower() == 'hcl') &(df['end_client'].str.lower() == 'google') &(df['contract_status'].str.lower() == 'active')"
+    },
+    {
+        "query": "Give me the list of candidates with contract type C2C and domain Healthcare",
+        "code_executed": "df.query(    \"domain.str.lower() == 'healthcare' and contract_status.str.lower() == 'c2c'\")"
+    },
+    {
+        "query": "Give me the candidates for the HCL client",
+        "code_executed": "((df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl'))"
+    },
+    {
+        "query": "Give me the average pay rate for the HCL client ",
+        "code_executed": "(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client ",
+        "code_executed": "((df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra'))"
+    },
+    {
+        "query": "Give me the candidates for HCL client ",
+        "code_executed": "(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')"
+    },
+    {
+        "query": "Give me the number of candidates with job title of network engineer",
+        "code_executed": "(df['job_title'].str.lower() == 'network engineer')"
+    },
+    {
+        "query": "Give me the number of candidates with job title of network engineer",
+        "code_executed": "(df['job_title'].str.lower() == 'network engineer')"
+    },
+    {
+        "query": "Give me the number of candidates with job title of network engineer",
+        "code_executed": "(df['job_title'].str.lower() == 'network engineer') | (df['domain'].str.lower() == 'network engineer')"
+    },
+    {
+        "query": "Give me the number of candidates with job title of network engineer",
+        "code_executed": "(df['job_title'].str.lower().str.contains('network engineer', case=False))"
+    },
+    {
+        "query": "Give me the number of candidates with HCL client",
+        "code_executed": "(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')"
+    },
+    {
+        "query": "Give me the number of candidates with HCL client",
+        "code_executed": "((df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl'))"
+    },
+    {
+        "query": "Give me the number of candidates with HCL client",
+        "code_executed": "((row['client'].str.lower() == 'hcl') | (row['end_client'].str.lower() == 'hcl'))"
+    },
+    {
+        "query": "Give me the number of candidates with HCL client",
+        "code_executed": "((client.lower() == 'hcl') | (end_client.lower() == 'hcl'))"
+    },
+    {
+        "query": "Give me the number of candidates with HCL client",
+        "code_executed": "(client.lower() == 'hcl') | (end_client.lower() == 'hcl')"
+    },
+    {
+        "query": "Give me the number of candidates with HCL client",
+        "code_executed": "((client.lower() == 'hcl') | (end_client.lower() == 'hcl'))"
+    },
+    {
+        "query": "Give me the number of candidates with HCL client",
+        "code_executed": "((client.lower() == 'hcl') | (end_client.lower() == 'hcl'))"
+    },
+    {
+        "query": "Give me the number of candidates with HCL client\n",
+        "code_executed": "(client.lower() == 'hcl') | (end_client.lower() == 'hcl')"
+    },
+    {
+        "query": "Give me the number of candidates with HCL client\n",
+        "code_executed": "(client.lower() == 'hcl') | (end_client.lower() == 'hcl')"
+    },
+    {
+        "query": "Give me the count of just the HCL clients \n",
+        "code_executed": "((client.lower() == 'hcl') | (end_client.lower() == 'hcl'))"
+    },
+    {
+        "query": "Give the candidates for Tech Mahindra client, AT&T end client and with active contract status\n",
+        "code_executed": "(client.lower() == 'tech mahindra') &\n(end_client.lower() == 'at&t') &\n(contract_status'] == 'Active')"
+    },
+    {
+        "query": "Give the candidates for HCL client, Google end client with active contract status",
+        "code_executed": "(client.lower() == 'hcl') | (client.lower() == 'google') & (end_client.lower() == 'hcl') | (end_client.lower() == 'google') & (contract_status'] == 'Active')"
+    },
+    {
+        "query": "Give me the candidates with network engineer job title and state CA",
+        "code_executed": "(job_title.lower() == 'network engineer') & (candidate_state.lower() == 'ca')"
+    },
+    {
+        "query": "Give me the candidates with network engineer job title and state CA",
+        "code_executed": "(\n    (job_title.lower().str.contains('network engineer')) | (domain.lower().str.contains('network engineer'))\n) & (candidate_state.lower() == 'ca')"
+    },
+    {
+        "query": "Give me the candidates with network engineer job title and state CA",
+        "code_executed": "```python\ndf.query(\"job_title.str.lower().str.contains('network engineer') and candidate_state.str.lower() == 'ca'\")\n```"
+    },
+    {
+        "query": "Give me the candidates with network engineer job title and state CA",
+        "code_executed": "```python\ndf[(df['job_title'].str.lower().str.contains('network engineer')) & (df['candidate_state'].str.lower() == 'ca')]\n```"
+    },
+    {
+        "query": "Give me the candidates with network engineer job title and state CA",
+        "code_executed": "df[(df['job_title'].str.lower().str.contains('network engineer')) & (df['candidate_state'].str.lower() == 'ca')]"
+    },
+    {
+        "query": "Give me the candidates with network engineer job title and state CA",
+        "code_executed": "(job_title.str.lower().str.contains(\"network engineer\")) & (candidate_state.str.lower() == \"ca\")"
+    },
+    {
+        "query": "Give me the candidates with network engineer job title and state CA",
+        "code_executed": "(job_title.str.lower().str.contains(\"network engineer\")) & \\\n(candidate_state.str.lower() == \"ca\")"
+    },
+    {
+        "query": "Give me the candidates with network engineer job title and state CA",
+        "code_executed": "(job_title.str.lower().str.contains(\"network engineer\")) & (candidate_state.str.lower() == \"ca\")"
+    },
+    {
+        "query": "Give me the candidates with network engineer job title and state CA",
+        "code_executed": "(job_title.str.lower().str.contains(\"network engineer\")) & (candidate_state.str.lower() == \"ca\")"
+    },
+    {
+        "query": "Give the candidates for HCL client, Google end client with active contract status",
+        "code_executed": "(client.str.lower() == 'hcl') & (end_client.str.lower() == 'google') & (contract_status.str.lower() == 'active')"
+    },
+    {
+        "query": "Give me the candidates with Samsuns as end client",
+        "code_executed": "end_client.str.lower().str.contains(\"samsun\")"
+    },
+    {
+        "query": "Give me the candidates with Samsung as end client",
+        "code_executed": "end_client.str.lower().str.contains(\"samsung\")"
+    },
+    {
+        "query": "Give me the candidates with samsung end client",
+        "code_executed": "(df.end_client.str.lower().str.contains('samsung'))"
+    },
+    {
+        "query": "Give me the candidates with samsung end client",
+        "code_executed": "end_client.str.lower().str.contains(\"samsung\")"
+    },
+    {
+        "query": "Give me the candidates with samsung end client",
+        "code_executed": "end_client.str.lower().str.contains(\"samsung\")"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n",
+        "code_executed": "(end_client.str.lower() == 'samsung')"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n",
+        "code_executed": "(end_client.str.lower().str.contains('samsung', na=False))"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client ",
+        "code_executed": "(end_client.str.lower() == 'samsung')"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client ",
+        "code_executed": "(end_client.str.lower().str.contains('samsung')) & (client.str.lower() == 'samsung')"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client ",
+        "code_executed": "(end_client.str.lower().str.contains('samsung'))"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client ",
+        "code_executed": "(end_client.str.lower() == 'samsung')"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client ",
+        "code_executed": "(\n    end_client.str.lower().str.contains(\"samsung\")\n    & vendor_country_id.str.lower().str.contains(\"samsung\")\n)"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client ",
+        "code_executed": "end_client.str.lower().str.contains(\"samsung\")"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client ",
+        "code_executed": "end_client.str.lower() == 'samsung'"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client ",
+        "code_executed": "end_client.str.lower().str.contains(\"samsung\", case=False)"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client ",
+        "code_executed": "end_client.str.lower().str.contains(\"samsung\")"
+    },
+    {
+        "query": "Give me the candidates for samsung end client ",
+        "code_executed": "end_client.str.lower().str.contains(\"samsung\")"
+    },
+    {
+        "query": "Give me the candidates for samsung end client ",
+        "code_executed": "(end_client.str.lower().str.contains('samsung')) & (client.str.lower().str.contains('samsung'))"
+    },
+    {
+        "query": "Give me the candidates for samsung end client ",
+        "code_executed": "(end_client.str.lower().str.contains('samsung')) & (end_client.notnull())"
+    },
+    {
+        "query": "Give the candidates for HCL client, Google end client with active contract status",
+        "code_executed": "(client.str.lower() == 'hcl') & (end_client.str.lower() == 'google') & (contract_status.str.lower() == 'active')"
+    },
+    {
+        "query": "Give the candidates for HCL client, Google end client with active contract status",
+        "code_executed": "(df['Client'].str.lower().str.contains('hcl')) & \\\n(df['End_Client'].str.lower().str.contains('google')) & \\\n(df['Contract_Status'].str.lower() == 'active')"
+    },
+    {
+        "query": "Give the candidates for HCL client, Google end client with active contract status",
+        "code_executed": "(client.str.lower().str.contains('hcl')) & (end_client.str.lower().str.contains('google')) & (contract_status.str.lower().str.contains('active'))"
+    },
+    {
+        "query": "Give the candidates for HCL client, Google end client with active contract status",
+        "code_executed": "(client.str.lower() == 'hcl') & (end_client.str.lower() == 'google') & (contract_status.str.lower() == 'active')"
+    },
+    {
+        "query": "Give the candidates for HCL client, Google end client with active contract status",
+        "code_executed": "(client.str.lower() == 'hcl') & (end_client.str.lower() == 'google') & (contract_status == 'Active')"
+    },
+    {
+        "query": "Give the candidates for HCL client, Google end client with active contract status",
+        "code_executed": "(client.str.lower().str.contains('hcl')) & \\\n(end_client.str.lower().str.contains('google')) & \\\n(contract_status.str.lower() == 'active')"
+    },
+    {
+        "query": "Give the candidates for HCL client, Google end client with active contract status",
+        "code_executed": "(client.str.lower() == 'hcl') & (end_client.str.lower() == 'google') & (contract_status.str.lower() == 'active')"
+    },
+    {
+        "query": "Give the candidates for Tech Mahindra client, AT&T end client and with active contract status",
+        "code_executed": "(client.str.lower() == 'tech mahindra') & (end_client.str.lower() == 'at&t') & (contract_status.str.lower() == 'active')"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client and AT&T end client ",
+        "code_executed": "(df['client'].str.lower() == 'tech mahindra') & (df['end_client'].str.lower() == 'att')"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client and AT&T end client ",
+        "code_executed": "(client.str.lower() == 'tech mahindra') & (end_client.str.lower() == 'at&t')"
+    },
+    {
+        "query": "Give me the candidates for MS Office",
+        "code_executed": "(primary_skills.str.lower().str.contains('ms office')) | (secondary_skills.str.lower().str.contains('ms office'))"
+    },
+    {
+        "query": "Give the candidates with HCL client and active contract status\n",
+        "code_executed": "(client.str.lower().str.contains('hcl')) & (contract_status.str.lower() == 'active')"
+    },
+    {
+        "query": "Give the candidates with GCP skills\n",
+        "code_executed": "(primary_skills.str.lower().str.contains('gcp')) | (secondary_skills.str.lower().str.contains('gcp'))"
+    },
+    {
+        "query": "Give the candidates with MS office skills\n",
+        "code_executed": "(primary_skills.str.lower().str.contains('ms office')) | (secondary_skills.str.lower().str.contains('ms office'))"
+    },
+    {
+        "query": "Give the candidates with GCP, GCP BigQuery, GCP Looker, GCP Services, GCP cloud and MGCP skills\n",
+        "code_executed": "(primary_skills.str.lower().str.contains('gcp') |\n primary_skills.str.lower().str.contains('bigquery') |\n primary_skills.str.lower().str.contains('looker') |\n primary_skills.str.lower().str.contains('services') |\n primary_skills.str.lower().str.contains('cloud') |\n primary_skills.str.lower().str.contains('mgcp'))"
+    },
+    {
+        "query": "Give the candidates with GCP, GCP BigQuery, GCP Looker, GCP Services, GCP cloud and MGCP skills\n",
+        "code_executed": "(primary_skills.str.lower().str.contains(\"gcp\") |\n primary_skills.str.lower().str.contains(\"bigquery\") |\n primary_skills.str.lower().str.contains(\"looker\") |\n primary_skills.str.lower().str.contains(\"gcp services\") |\n primary_skills.str.lower().str.contains(\"gcp cloud\") |\n primary_skills.str.lower().str.contains(\"mgcp\"))"
+    },
+    {
+        "query": "Give the candidates with GCP, GCP BigQuery, GCP Looker, GCP Services, GCP cloud and MGCP skills\n",
+        "code_executed": "(primary_skills.str.lower().str.contains('gcp') |\n primary_skills.str.lower().str.contains('gcp bigquery') |\n primary_skills.str.lower().str.contains('gcp looker') |\n primary_skills.str.lower().str.contains('gcp services') |\n primary_skills.str.lower().str.contains('gcp cloud') |\n primary_skills.str.lower().str.contains('mgcp'))"
+    },
+    {
+        "query": "Give the candidates with GCP and MGCP skills\n",
+        "code_executed": "(primary_skills.str.lower().str.contains('gcp') | secondary_skills.str.lower().str.contains('gcp')) & (primary_skills.str.lower().str.contains('mgcp') | secondary_skills.str.lower().str.contains('mgcp'))"
+    },
+    {
+        "query": "Give the candidates with GCP and MGCP skills\n",
+        "code_executed": "(primary_skills.str.lower().str.contains(\"gcp\")) & (secondary_skills.str.lower().str.contains(\"mgcp\"))"
+    },
+    {
+        "query": "Give the candidates with GCP and MGCP skills\n",
+        "code_executed": "(\n    (primary_skills.str.lower().str.contains(\"gcp\") | primary_skills.str.lower().str.contains(\"mgcp\"))\n    & (\n        secondary_skills.str.lower().str.contains(\"gcp\") | secondary_skills.str.lower().str.contains(\"mgcp\")\n    )\n)"
+    },
+    {
+        "query": "Give the candidates with GCP and MGCP skills\n",
+        "code_executed": "(\n    primary_skills.str.lower().str.contains(\"gcp\")\n    | primary_skills.str.lower().str.contains(\"mgcp\")\n    | secondary_skills.str.lower().str.contains(\"gcp\")\n    | secondary_skills.str.lower().str.contains(\"mgcp\")\n)"
+    },
+    {
+        "query": "Give the candidates with GCP MGCP skills\n",
+        "code_executed": "(primary_skills.str.lower().str.contains('gcp')) | (secondary_skills.str.lower().str.contains('gcp'))"
+    },
+    {
+        "query": "Give the candidates with GCP skills\n",
+        "code_executed": "(primary_skills.str.lower().str.contains('gcp')) | (secondary_skills.str.lower().str.contains('gcp'))"
+    },
+    {
+        "query": "Give the candidates with Business Analyst job title\n",
+        "code_executed": "job_title.str.lower().str.contains(\"business analyst\", case=False)"
+    },
+    {
+        "query": "Give the candidates with business analyst job title\n",
+        "code_executed": "job_title.str.lower().str.contains(\"business analyst\")"
+    },
+    {
+        "query": "Give the candidates with business analyst job title\n",
+        "code_executed": "job_title.str.lower().str.contains(\"business analyst\")"
+    },
+    {
+        "query": "Give the candidates with business analyst job title\n",
+        "code_executed": "job_title.str.lower().str.contains(\"business analyst\")"
+    },
+    {
+        "query": "Give the candidates with business analyst job title\n",
+        "code_executed": "job_title.str.lower().str.contains(\"business analyst\")"
+    },
+    {
+        "query": "Give the candidates with business analyst job title",
+        "code_executed": "job_title.str.lower().str.contains(\"business analyst\")"
+    },
+    {
+        "query": "Give me the candidates with network engineer job title\n",
+        "code_executed": "job_title.str.lower().str.contains(\"network engineer\")"
+    },
+    {
+        "query": "Give me the candidates with network engineer job title",
+        "code_executed": "(job_title.fillna('').str.lower().str.contains('network engineer', na=False))"
+    },
+    {
+        "query": "Give me the candidates with network engineer job title",
+        "code_executed": "import pandas as pd\n\nfilter_condition = lambda df: df['job_title'].fillna('').str.lower().str.contains('network engineer', na=False)"
+    },
+    {
+        "query": "Give me the candidates with network engineer job title",
+        "code_executed": "lambda df: df['job_title'].fillna('').str.lower().str.contains('network engineer', na=False)"
+    },
+    {
+        "query": "Give me the candidates with business analyst job title",
+        "code_executed": "lambda df: df[\"job_title\"].fillna(\"\").str.lower().str.contains(\"%business analyst%\", na=False)"
+    },
+    {
+        "query": "Give me the candidates with business analyst job title",
+        "code_executed": "lambda df: df['job_title'].fillna('').str.lower().str.contains('business analyst', na=False)"
+    },
+    {
+        "query": "Give me the candidates with transportation domain",
+        "code_executed": "lambda df: df['domain'].fillna('').str.lower().str.contains('%transportation%', na=False)"
+    },
+    {
+        "query": "Give me the candidates with transportation domain",
+        "code_executed": "lambda df: df['domain'].fillna('').str.lower().str.contains('transportation', na=False)"
+    },
+    {
+        "query": "Give me the candidates with transportation domain and active contract status",
+        "code_executed": "lambda df: (\n    df['domain'].fillna('').str.lower() == 'transportation'\n) & (\n    df['contract_status'].fillna('').str.lower() == 'active'\n)"
+    },
+    {
+        "query": "Give me the candidates with transportation domain, cognizant client and with active contract status",
+        "code_executed": "lambda df: (\n    df['domain'].fillna('').str.lower() == 'transportation'\n    & df['client'].fillna('').str.lower() == 'cognizant'\n    & df['contract_status'].fillna('').str.lower() == 'active'\n)"
+    },
+    {
+        "query": "Give me the candidates with transportation domain, cognizant client and with active contract status",
+        "code_executed": "lambda df: df['domain'].fillna('').str.lower().str.contains('transportation', na=False) & \\\n           df['client'].fillna('').str.lower().str.contains('cognizant', na=False) & \\\n           df['contract_status'].fillna('').str.lower() == 'active'"
+    },
+    {
+        "query": "Give me the candidates with transportation domain, cognizant client and with active contract status",
+        "code_executed": "lambda df: (df.domain.fillna('').str.lower() == 'transportation') & \\\n            (df.client.fillna('').str.lower() == 'cognizant') & \\\n            (df.contract_status.fillna('').str.lower() == 'active')"
+    },
+    {
+        "query": "Give me the candidates with transportation domain, cognizant client and with active contract status",
+        "code_executed": "lambda df: (\n    df['domain'].fillna('').str.lower() == 'transportation'\n    & df['client'].fillna('').str.lower() == 'cognizant'\n    & df['contract_status'].fillna('').str.lower() == 'active'\n)"
+    },
+    {
+        "query": "Give me the candidates with transportation domain, cognizant client and with active contract status",
+        "code_executed": "lambda df: (\n    df['domain'].fillna('').str.lower().str.contains('transportation', na=False)\n    & df['client'].fillna('').str.lower().str.contains('cognizant', na=False)\n    & (df['contract_status'] == 'Active')\n)"
+    },
+    {
+        "query": "Give me the candidates with transportation domain, cognizant client and with active contract status",
+        "code_executed": "(domain.str.lower() == 'transportation') & (client.str.lower() == 'cognizant') & (contract_status.str.lower() == 'active')"
+    },
+    {
+        "query": "Give me the candidates with transportation domain, cognizant client and with active contract status",
+        "code_executed": "(domain.str.lower() == 'transportation') & \\\n(client.str.lower() == 'cognizant') & \\\n(contract_status == 'active')"
+    },
+    {
+        "query": "Give me the candidates with transportation domain, cognizant client and with active contract status",
+        "code_executed": "(domain.str.lower() == 'transportation') & \\\n(client.str.lower() == 'cognizant') & \\\n(contract_status.str.lower() == 'active')"
+    },
+    {
+        "query": "Give me the candidates with transportation domain, cognizant client and with active contract status",
+        "code_executed": "(domain.str.lower() == 'transportation') & (client.str.lower() == 'cognizant') & (contract_status.str.lower() == 'active')"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client",
+        "code_executed": "(candidate_state.str.lower() == 'maryland') & (end_client.str.lower() == 'accenture') & (client.str.lower() == 'it')"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client",
+        "code_executed": "(end_client.str.lower() == 'accenture it') & (candidate_state.str.lower() == 'maryland')"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client",
+        "code_executed": "(end_client.str.lower().str.contains(\"maryland\")) & (client.str.lower() == \"accenture it\")"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client, accenture IT client and with call center skills",
+        "code_executed": "(\n    (end_client.str.lower().str.contains(\"accenture it\"))\n    & (candidate_state.str.lower() == \"maryland\")\n    & (primary_skills.str.lower().str.contains(\"call center\"))\n) | (secondary_skills.str.lower().str.contains(\"call center\"))"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client, accenture IT client and with call center skills",
+        "code_executed": "(\n    candidate_state.str.lower().str.contains(\"maryland\")\n    & client.str.lower().str.contains(\"accenture it\")\n    & primary_skills.str.lower().str.contains(\"call center\")\n)"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client, accenture IT client and with call center skills",
+        "code_executed": "(\n    end_client.str.lower().str.contains(\"accenture it\")\n    & candidate_state.str.lower() == \"maryland\"\n    & primary_skills.str.lower().str.contains(\"call center\")\n)"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client, accenture IT client and with call center skills",
+        "code_executed": "(\n    end_client.str.lower().str.contains(\"maryland\")\n    & client.str.lower().str.contains(\"accenture it\")\n    & primary_skills.str.lower().str.contains(\"call center\")\n)"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client, accenture IT client and with call center skills",
+        "code_executed": "(end_client.str.lower().str.contains(\"accenture it\")) & \\\n(candidate_state.str.lower().str.contains(\"maryland\")) & \\\n(primary_skills.str.lower().str.contains(\"call center\"))"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client, accenture IT client with call center skills",
+        "code_executed": "(end_client.str.lower().str.contains('accenture it')) & \\\n(candidate_state.str.lower().str.contains('maryland')) & \\\n(primary_skills.str.lower().str.contains('call center'))"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client\n",
+        "code_executed": "(candidate_state.str.lower() == 'maryland') & (end_client.str.lower() == 'accenture it')"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client\n",
+        "code_executed": "(candidate_state.str.lower() == 'maryland') & (end_client.str.lower() == 'accenture') & (client.str.lower() == 'it')"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client\n",
+        "code_executed": "(end_client.str.lower().str.contains('maryland')) & (client.str.lower().str.contains('accenture it'))"
+    },
+    {
+        "query": "Find candidates where the end client is state of maryland AND the client is Accenture IT\n",
+        "code_executed": "(end_client.str.lower().str.contains('maryland')) & (client.str.lower().str.contains('accenture it'))"
+    },
+    {
+        "query": "Find candidates where the end_client is 'State of Maryland', the client is 'Accenture IT', and the primary_skills or secondary_skills include 'call center'\n",
+        "code_executed": "(\n    end_client.str.lower().str.contains(\"state of maryland\")\n    & client.str.lower() == \"accenture it\"\n    & (\n        primary_skills.str.lower().str.contains(\"call center\")\n        | secondary_skills.str.lower().str.contains(\"call center\")\n    )\n)"
+    },
+    {
+        "query": "Find candidates where the end_client is 'State of Maryland', the client is 'Accenture IT', and the primary_skills or secondary_skills include 'call center'\n",
+        "code_executed": "(end_client.str.lower().str.contains(\"state of maryland\")) & \\\n(client.str.lower().str.contains(\"accenture it\")) & \\\n((primary_skills.str.lower().str.contains(\"call center\")) | \\\n(secondary_skills.str.lower().str.contains(\"call center\")))"
+    },
+    {
+        "query": "Find candidates where the end_client is 'State of Maryland', the client is 'Accenture IT', and the primary_skills or secondary_skills include 'call center'",
+        "code_executed": "(     end_client.str.lower() == 'state of maryland' ) & (     client.str.lower() == 'accenture it' ) & (     (primary_skills.str.lower().contains('call center')) | (secondary_skills.str.lower().contains('call center')) )"
+    },
+    {
+        "query": "Find candidates where the end_client is 'State of Maryland', the client is 'Accenture IT', and the primary_skills or secondary_skills is 'call center'",
+        "code_executed": "((end_client.str.lower() == 'state of maryland')  & (client.str.lower() == 'accenture it')  & ((primary_skills.str.lower().contains('call center')) | (secondary_skills.str.lower().contains('call center'))))"
+    },
+    {
+        "query": "Find candidates where the end_client contains 'State of Maryland', the client contains 'Accenture IT', and either primary_skills or secondary_skills contain 'call center",
+        "code_executed": "(end_client.str.lower().str.str.contains('state of maryland')) &  (client.str.lower().str.str.contains('accenture it')) &  ((primary_skills.str.lower().str.str.contains('call center')) |   (secondary_skills.str.lower().str.str.contains('call center')))"
+    },
+    {
+        "query": "Find candidates where the end_client contains 'State of Maryland', the client contains 'Accenture IT', and either primary_skills or secondary_skills contain 'call center",
+        "code_executed": "(end_client.str.lower().contains('state of maryland')) &  (client.str.lower().contains('accenture it')) &  ((primary_skills.str.lower().contains('call center')) |  (secondary_skills.str.lower().contains('call center')))"
+    },
+    {
+        "query": "Find candidates where the end client contains 'State of Maryland', the client contains 'Accenture IT', and either primary skills or secondary skills contain 'call center'",
+        "code_executed": "(end_client.str.lower().contains(\"state of maryland\")) &  (client.str.lower().contains(\"accenture it\")) &  ((primary_skills.str.lower().contains(\"call center\")) |  (secondary_skills.str.lower().contains(\"call center\")))"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client\n",
+        "code_executed": "(end_client.str.lower().contains('maryland')) & (client.str.lower() == 'accenture it')"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client\n",
+        "code_executed": "(end_client.str.lower().str.contains('maryland')) & (client.str.lower() == 'accenture it')"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client, accenture IT client and with call center skills\n",
+        "code_executed": "(end_client.str.lower().str.contains(\"accenture it\")) & \\\n(candidate_state.str.lower() == \"maryland\") & \\\n(primary_skills.str.lower().str.contains(\"call center\"))"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and with call center skills\n",
+        "code_executed": "(end_client.str.lower().str.contains(\"maryland\")) & (primary_skills.str.lower().str.contains(\"call center\"))"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and with call center skills\n",
+        "code_executed": "(end_client.str.lower().str.contains(\"maryland\") & primary_skills.str.lower().str.contains(\"call center\")) | (end_client.str.lower().str.contains(\"maryland\") & secondary_skills.str.lower().str.contains(\"call center\"))"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and with call center skills\n",
+        "code_executed": "(end_client.str.lower().str.contains('maryland')) & (primary_skills.str.lower().str.contains('call center'))"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and government domain\n",
+        "code_executed": "(candidate_state.str.lower() == 'maryland') & \\\n(end_client.str.lower() == 'government') & \\\n(domain.str.lower() == 'government')"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and with government domain\n",
+        "code_executed": "(candidate_state.str.lower() == 'maryland') & (end_client.str.lower() == 'government') & (domain.str.lower() == 'government')"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and with government domain\n",
+        "code_executed": "(candidate_state.str.lower() == 'maryland') & (end_client.str.lower().str.contains('government'))"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and with government domain\n",
+        "code_executed": "candidate_state.str.lower() == 'maryland' & end_client.str.lower() == 'government'"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client with domain as government\n",
+        "code_executed": "(candidate_state.str.lower() == 'maryland') & (end_client.str.lower().str.contains('government'))"
+    },
+    {
+        "query": "Give me the candidates with state of maryland as end client with domain as government\n",
+        "code_executed": "(end_client.str.lower().str.contains(\"maryland\")) & (domain.str.lower().str.contains(\"government\"))"
+    },
+    {
+        "query": "Give me the candidates with state of maryland as end client and with domain as government\n",
+        "code_executed": "(end_client.str.lower().str.contains(\"maryland\", na=False)) & (\n    domain.str.lower().str.contains(\"government\", na=False)\n)"
+    },
+    {
+        "query": "Give me the candidates with state of maryland as end client and with domain as government",
+        "code_executed": "(df['end_client'].str.lower() == 'maryland') & (df['domain'].str.lower() == 'government')"
+    },
+    {
+        "query": "Give me the candidates with state of maryland as end client and with domain as government",
+        "code_executed": "((df['end_client'].str.lower() == 'maryland') & (df['domain'].str.lower() == 'government')) | ((df['client'].str.lower() == 'maryland') & (df['domain'].str.lower() == 'government'))"
+    },
+    {
+        "query": "Give the candidates with HCL client and active contract status\n",
+        "code_executed": "(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl') & (df['contract_status'] == 'active')"
+    },
+    {
+        "query": "Give the candidates with HCL client and active contract status\n",
+        "code_executed": "((df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')) & (df['contract_status'] == 'active')"
+    },
+    {
+        "query": "Give the candidates with HCL client and active contract status\n",
+        "code_executed": "((df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')) & (df['contract_status'] == 'active')"
+    },
+    {
+        "query": "Give the candidates with HCL client and active contract status\n",
+        "code_executed": "((df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')) & (df['contract_status'] == 'active')"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n\n",
+        "code_executed": "(df['end_client'].str.lower() == 'samsung')"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n\n",
+        "code_executed": "df[(df['end_client'].str.lower() == 'samsung')]"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n\n",
+        "code_executed": "(df['end_client'].str.lower() == 'samsung')"
+    },
+    {
+        "query": "Give me the candidates with transportation domain\n",
+        "code_executed": "domain.str.lower().str.contains(\"transportation\")"
+    },
+    {
+        "query": "Give me the candidates with transportation domain\n",
+        "code_executed": "domain.str.lower().str.contains('transportation')"
+    },
+    {
+        "query": "Give me the candidates with transportation domain\n",
+        "code_executed": "(\n    (domain.str.lower().str.contains(\"transportation\"))\n    | (primary_skills.str.lower().str.contains(\"transportation\"))\n    | (secondary_skills.str.lower().str.contains(\"transportation\"))\n)"
+    },
+    {
+        "query": "Give me the candidates with transportation domain\n",
+        "code_executed": "domain.str.lower().str.contains(\"transportation\")"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n",
+        "code_executed": "(end_client.str.lower().str.contains(\"samsung\")) & (client.str.lower() == \"samsung\")"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n",
+        "code_executed": "(end_client.str.lower().str.contains('samsung'))"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n",
+        "code_executed": "(df['end_client'].str.lower().str.contains('samsung', na=False))"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n",
+        "code_executed": "end_client.str.lower().str.contains(\"samsung\")"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n",
+        "code_executed": "(end_client.str.lower() == 'samsung')"
+    },
+    {
+        "query": "Give the candidates with GCP skills\n",
+        "code_executed": "(primary_skills.str.lower().str.contains('gcp')) | (secondary_skills.str.lower().str.contains('gcp'))"
+    },
+    {
+        "query": "Give me the candidates with government domain\n\n",
+        "code_executed": "domain.str.lower().str.contains('government')"
+    },
+    {
+        "query": "Give me the candidates with government domain\n\n",
+        "code_executed": "domain.str.lower().str.contains(\"government\")"
+    },
+    {
+        "query": "Give me the candidates with government domain\n\n",
+        "code_executed": "domain.str.lower().str.contains(\"government\")"
+    },
+    {
+        "query": "Give me the candidates with government domain\n\n",
+        "code_executed": "domain.str.lower().str.contains(\"government\")"
+    },
+    {
+        "query": "Give me the candidates with government domain\n\n",
+        "code_executed": "domain.str.lower().str.contains(\"government\")"
+    },
+    {
+        "query": "Give me the candidates with government domain\n\n",
+        "code_executed": "domain.str.lower().str.contains(\"government\")"
+    },
+    {
+        "query": "Give me the candidates with government domain\n\n",
+        "code_executed": "domain.str.lower().str.contains(\"government\")"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n\n\n",
+        "code_executed": "(end_client.str.lower().str.contains(\"samsung\"))"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n\n\n",
+        "code_executed": "(end_client.str.lower().str.contains(\"samsung\", na=False))"
+    },
+    {
+        "query": "Give me the candidates for state of maryland end client \n\n\n",
+        "code_executed": "(candidate_state.str.lower() == 'maryland') & (end_client.str.lower() == 'state of maryland')"
+    },
+    {
+        "query": "Give me the candidates for state of maryland end client \n\n\n",
+        "code_executed": "(candidate_state.str.lower().str.contains('maryland')) & (end_client.str.lower() != 'n/a')"
+    },
+    {
+        "query": "Give me the candidates for state of maryland end client \n\n\n",
+        "code_executed": "(candidate_state.str.lower() == 'maryland')"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client \n\n\n",
+        "code_executed": "(df['end_client'].str.lower().str.contains('microsoft'))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client \n\n\n",
+        "code_executed": "(end_client.str.lower().str.contains(\"microsoft\"))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client \n\n\n",
+        "code_executed": "(end_client.str.lower().str.contains('microsoft'))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client \n\n\n",
+        "code_executed": "(end_client.str.lower() == 'microsoft')"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client \n",
+        "code_executed": "(end_client.str.lower().str.contains('microsoft')) & (client.str.lower().str.contains('microsoft'))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client \n",
+        "code_executed": "end_client.str.lower().str.contains(\"microsoft\")"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client \n",
+        "code_executed": "(end_client.str.lower().str.contains(\"microsoft\"))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client \n",
+        "code_executed": "(end_client.str.lower().str.contains('microsoft'))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client \n",
+        "code_executed": "(end_client.str.lower() == 'microsoft')"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client \n",
+        "code_executed": "end_client.str.lower().str.contains('microsoft')"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client \n",
+        "code_executed": "(end_client.str.lower() == 'microsoft')"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills\n",
+        "code_executed": "(\n    (end_client.str.lower().str.contains(\"microsoft\"))\n    & (primary_skills.str.lower().str.contains(\"azure\"))\n) | (secondary_skills.str.lower().str.contains(\"azure\"))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills\n",
+        "code_executed": "(end_client.str.lower().str.contains(\"microsoft\")) & (\n    (primary_skills.str.lower().str.contains(\"azure\")) | (\n        secondary_skills.str.lower().str.contains(\"azure\")\n    )\n)"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills\n",
+        "code_executed": "(\n    end_client.str.lower().str.contains(\"microsoft\")\n    & (\n        primary_skills.str.lower().str.contains(\"azure\")\n        | secondary_skills.str.lower().str.contains(\"azure\")\n    )\n)"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills\n",
+        "code_executed": "(\n    client.str.lower().str.contains(\"microsoft\")\n    & end_client.str.lower().str.contains(\"microsoft\")\n    & (\n        primary_skills.str.lower().str.contains(\"azure\")\n        | secondary_skills.str.lower().str.contains(\"azure\")\n    )\n)"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills\n",
+        "code_executed": "(end_client.str.lower().str.contains('microsoft')) & (\n    (primary_skills.str.lower().str.contains('azure')) | (secondary_skills.str.lower().str.contains('azure'))\n)"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills\n",
+        "code_executed": "(\n    end_client.str.lower().str.contains(\"microsoft\")\n    & (\n        primary_skills.str.lower().str.contains(\"azure\")\n        | secondary_skills.str.lower().str.contains(\"azure\")\n    )\n)"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills\n",
+        "code_executed": "(primary_skills.str.lower().str.contains('microsoft')) & (end_client.str.lower().str.contains('azure'))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills\n",
+        "code_executed": "(client.str.lower().str.contains('microsoft')) & (end_client.str.lower().str.contains('azure'))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills\n",
+        "code_executed": "(end_client.str.lower().str.contains('microsoft')) & (\n    primary_skills.str.lower().str.contains('azure') | secondary_skills.str.lower().str.contains('azure')\n)"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills\n",
+        "code_executed": "(end_client.str.lower().str.contains('microsoft')) & (primary_skills.str.lower().str.contains('azure'))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills\n",
+        "code_executed": "(end_client.str.lower().str.contains('microsoft') & primary_skills.str.lower().str.contains('azure')) | (end_client.str.lower().str.contains('microsoft') & secondary_skills.str.lower().str.contains('azure'))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client, mindtree client and SQL skills\n",
+        "code_executed": "(client.str.lower().str.contains('microsoft')) & \\\n(end_client.str.lower().str.contains('mindtree')) & \\\n(primary_skills.str.lower().str.contains('sql') | \\\nsecondary_skills.str.lower().str.contains('sql') | \\\ndomain.str.lower().str.contains('sql'))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client, mindtree client and SQL skills\n",
+        "code_executed": "(\n    (client.str.lower().str.contains(\"microsoft\"))\n    & (end_client.str.lower().str.contains(\"mindtree\"))\n    & (primary_skills.str.lower().str.contains(\"sql\"))\n) | (\n    (client.str.lower().str.contains(\"mindtree\"))\n    & (end_client.str.lower().str.contains(\"microsoft\"))\n    & (primary_skills.str.lower().str.contains(\"sql\"))\n)"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client, mindtree client and SQL skills\n",
+        "code_executed": "(\n    end_client.str.lower().str.contains(\"microsoft\")\n    & client.str.lower().str.contains(\"mindtree\")\n    & (primary_skills.str.lower().str.contains(\"sql\") | secondary_skills.str.lower().str.contains(\"sql\"))\n)"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client, mindtree client and SQL skills\n",
+        "code_executed": "(client.str.lower() == 'mindtree') & \\\n(end_client.str.lower() == 'microsoft') & \\\n(primary_skills.str.lower().str.contains('sql'))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client, mindtree client and SQL skills\n",
+        "code_executed": "(end_client.str.lower().isin(['microsoft', 'mindtree'])) & (primary_skills.str.lower().str.contains('sql'))"
+    },
+    {
+        "query": "Give me the candidates for mindtree client, technology domain and SQL skills\n",
+        "code_executed": "(\n    client.str.lower().str.contains(\"mindtree\")\n    & domain.str.lower().str.contains(\"technology\")\n    & primary_skills.str.lower().str.contains(\"sql\")\n)"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client \n",
+        "code_executed": "(end_client.str.lower() == 'microsoft')"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client, mindtree client and SQL skills\n",
+        "code_executed": "(end_client.str.lower().str.contains('microsoft')) & \\\n(end_client.str.lower().str.contains('mindtree')) & \\\n(primary_skills.str.lower().str.contains('sql'))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client, mindtree client and SQL skills\n",
+        "code_executed": "(\n    end_client.str.lower().str.contains(\"microsoft\") &\n    client.str.lower().str.contains(\"mindtree\") &\n    primary_skills.str.lower().str.contains(\"sql\")\n)"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client, mindtree client and SQL skills\n",
+        "code_executed": "(end_client.str.lower().isin(['microsoft', 'mindtree'])) & (primary_skills.str.lower().str.contains('sql'))"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client\n",
+        "code_executed": "(end_client.str.lower() == 'maryland') & (client.str.lower() == 'accenture it')"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client\n",
+        "code_executed": "((candidate_state.str.lower().str.contains(\"maryland\")) &\n (end_client.str.lower().str.contains(\"accenture\")))"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client\n",
+        "code_executed": "((end_client.str.lower().str.contains('maryland')) &\n (client.str.lower().str.contains('accenture')))"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client\n",
+        "code_executed": "(end_client.str.lower() == 'maryland') & (client.str.lower() == 'accenture it')"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client\n",
+        "code_executed": "(candidate_state.str.lower() == 'maryland') & (end_client.str.lower() == 'accenture it')"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client\n",
+        "code_executed": "(candidate_state.str.lower().str.contains('maryland')) & \\\n(end_client.str.lower() == 'accenture it')"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client\n",
+        "code_executed": "(end_client.str.lower().str.contains('maryland')) & (client.str.lower().str.contains('accenture it'))"
+    },
+    {
+        "query": "Give me the candidates with state of maryland as end client and accenture IT as client\n",
+        "code_executed": "(end_client.str.lower().like(\"%maryland%\")) & (client.str.lower() == \"accenture it\")"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client\n",
+        "code_executed": "(end_client.str.lower().str.contains(\"maryland\")) & (client.str.lower() == \"accenture it\")"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client, mindtree client and SQL skills\n",
+        "code_executed": "(end_client.str.lower() == 'microsoft') & \\\n(client.str.lower() == 'mindtree') & \\\n((primary_skills.str.lower().str.contains('sql')) | \\\n(secondary_skills.str.lower().str.contains('sql')))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client, mindtree client and SQL skills\n",
+        "code_executed": "(\n    end_client.str.lower().str.contains('microsoft')\n    & end_client.str.lower().str.contains('mindtree')\n    & primary_skills.str.lower().str.contains('sql')\n    & secondary_skills.str.lower().str.contains('sql')\n)"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills\n",
+        "code_executed": "(\n    end_client.str.lower() == 'microsoft'\n) & (\n    (primary_skills.str.lower().str.contains('azure')) | (secondary_skills.str.lower().str.contains('azure'))\n)"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills",
+        "code_executed": "(end_client.str.lower().str.contains('microsoft')) & (\n    (primary_skills.str.lower().str.contains('azure'))\n    | (secondary_skills.str.lower().str.contains('azure'))\n)"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills",
+        "code_executed": "(end_client.str.lower() == 'microsoft') & ((primary_skills.str.lower().str.contains('azure')) | (secondary_skills.str.lower().str.contains('azure')))"
+    },
+    {
+        "query": "Give me the candidates for mindtree client and technology domain",
+        "code_executed": "(client.str.lower().str.contains('mindtree')) & (domain.str.lower().str.contains('technology'))"
+    },
+    {
+        "query": "Give me the candidates for mindtree client and technology domain and python skills",
+        "code_executed": "(client.str.lower().str.contains('mindtree')) & (domain.str.lower().str.contains('technology')) & ((primary_skills.str.lower().str.contains('python')) | (secondary_skills.str.lower().str.contains('python')))"
+    },
+    {
+        "query": "Give me the candidates for technology domain and python skills and automation engineer job title",
+        "code_executed": "(domain.str.lower().str.contains(\"technology\")) & \\\n(primary_skills.str.lower().str.contains(\"python\")) & \\\n(job_title.str.lower().str.contains(\"automation engineer\"))"
+    },
+    {
+        "query": "Give me the candidates for technology domain and python skills and automation engineer job title",
+        "code_executed": "(domain.str.lower().str.contains('technology')) & \\\n(primary_skills.str.lower().str.contains('python')) & \\\n(job_title.str.lower().str.contains('automation engineer'))"
+    },
+    {
+        "query": "Give me the candidates for technology domain and python skills and automation engineer job title",
+        "code_executed": "(\n    domain.str.lower().str.contains(\"technology\") &\n    primary_skills.str.lower().str.contains(\"python\") &\n    job_title.str.lower().str.contains(\"automation engineer\")\n)"
+    },
+    {
+        "query": "Give me the candidates for technology domain and automation engineer job title",
+        "code_executed": "(domain.str.lower() == 'technology') & (job_title.str.lower().str.contains('automation engineer'))"
+    },
+    {
+        "query": "Give me the candidates for automation engineer job title and AWS skills",
+        "code_executed": "((job_title.str.lower().str.contains(\"automation engineer\")) & (primary_skills.str.lower().str.contains(\"aws\"))) | (secondary_skills.str.lower().str.contains(\"aws\"))"
+    },
+    {
+        "query": "Give me the candidates for automation engineer job title and selenium skills",
+        "code_executed": "(job_title.str.lower().str.contains(\"automation engineer\")) & (primary_skills.str.lower().str.contains(\"selenium\"))"
+    },
+    {
+        "query": "Give me the candidates with GCP, GCP Bigquery, gcp looker, gcp services gcp cloud and MGCP skills",
+        "code_executed": "((primary_skills.str.lower().str.contains('gcp')) | (primary_skills.str.lower().str.contains('bigquery')) | (primary_skills.str.lower().str.contains('looker')) | (primary_skills.str.lower().str.contains('gcp services')) | (primary_skills.str.lower().str.contains('gcp cloud')) | (primary_skills.str.lower().str.contains('mgcp'))) | ((secondary_skills.str.lower().str.contains('gcp')) | (secondary_skills.str.lower().str.contains('bigquery')) | (secondary_skills.str.lower().str.contains('looker')) | (secondary_skills.str.lower().str.contains('gcp services')) | (secondary_skills.str.lower().str.contains('gcp cloud')) | (secondary_skills.str.lower().str.contains('mgcp')))"
+    },
+    {
+        "query": "Give me the candidates with Datacenter, Data centers, Data Center Equipment, Data Center Implementation, Data center infrastructure, Data Center Server, Data Centre Networking, Datacenter Virtualization and management of the Data Centre skills",
+        "code_executed": "(\n    primary_skills.str.lower().str.contains(\"datacenter\")\n    | primary_skills.str.lower().str.contains(\"data centers\")\n    | primary_skills.str.lower().str.contains(\"data center equipment\")\n    | primary_skills.str.lower().str.contains(\"data center implementation\")\n    | primary_skills.str.lower().str.contains(\"data center infrastructure\")\n    | primary_skills.str.lower().str.contains(\"data center server\")\n    | primary_skills.str.lower().str.contains(\"data centre networking\")\n    | primary_skills.str.lower().str.contains(\"datacenter virtualization\")\n    | primary_skills.str.lower().str.contains(\"management of the data centre\")\n)"
+    },
+    {
+        "query": "Give me the candidates with Datacenter, Data centers, Data Center Equipment, Data Center Implementation, Data center infrastructure, Data Center Server, Data Centre Networking, Datacenter Virtualization and management of the Data Centre skills",
+        "code_executed": "(\n    primary_skills.str.lower().str.contains(\"datacenter\")\n    | primary_skills.str.lower().str.contains(\"data centers\")\n    | primary_skills.str.lower().str.contains(\"data center equipment\")\n    | primary_skills.str.lower().str.contains(\"data center implementation\")\n    | primary_skills.str.lower().str.contains(\"data center infrastructure\")\n    | primary_skills.str.lower().str.contains(\"data center server\")\n    | primary_skills.str.lower().str.contains(\"data centre networking\")\n    | primary_skills.str.lower().str.contains(\"datacenter virtualization\")\n    | primary_skills.str.lower().str.contains(\"management of the data centre\")\n)"
+    },
+    {
+        "query": "Give me the candidates with Datacenter, Data centers, Data Center Equipment, Data Center Implementation, Data center infrastructure, Data Center Server, Data Centre Networking, Datacenter Virtualization and management of the Data Centre skills",
+        "code_executed": "(primary_skills.str.lower().str.contains(\"datacenter\") | secondary_skills.str.lower().str.contains(\"datacenter\"))"
+    },
+    {
+        "query": "Give me the candidates with Datacenter, Data centers, Data Center Equipment, Data Center Implementation, Data center infrastructure, Data Center Server, Data Centre Networking, Datacenter Virtualization and management of the Data Centre skills",
+        "code_executed": "(\n    (primary_skills.str.lower().str.contains(\"datacenter\"))\n    | (secondary_skills.str.lower().str.contains(\"datacenter\"))\n    | (primary_skills.str.lower().str.contains(\"data centers\"))\n    | (secondary_skills.str.lower().str.contains(\"data centers\"))\n    | (primary_skills.str.lower().str.contains(\"data center equipment\"))\n    | (secondary_skills.str.lower().str.contains(\"data center equipment\"))\n    | (primary_skills.str.lower().str.contains(\"data center implementation\"))\n    | (secondary_skills.str.lower().str.contains(\"data center implementation\"))\n    | (primary_skills.str.lower().str.contains(\"data center infrastructure\"))\n    | (secondary_skills.str.lower().str.contains(\"data center infrastructure\"))\n    | (primary_skills.str.lower().str.contains(\"data center server\"))\n    | (secondary_skills.str.lower().str.contains(\"data center server\"))\n    | (primary_skills.str.lower().str.contains(\"data centre networking\"))\n    | (secondary_skills.str.lower().str.contains(\"data centre networking\"))\n    | (primary_skills.str.lower().str.contains(\"datacenter virtualization\"))\n    | (secondary_skills.str.lower().str.contains(\"datacenter virtualization\"))\n    | (primary_skills.str.lower().str.contains(\"management of the data centre\"))\n    | (secondary_skills.str.lower().str.contains(\"management of the data centre\"))\n)"
+    },
+    {
+        "query": "Give me the candidates with Datacenter skills",
+        "code_executed": "(primary_skills.str.lower().str.contains(\"datacenter\") | secondary_skills.str.lower().str.contains(\"datacenter\"))"
+    },
+    {
+        "query": "Give the candidates with GCP skills\n",
+        "code_executed": "((primary_skills.str.lower().str.contains('gcp')) |\n (secondary_skills.str.lower().str.contains('gcp')))"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n\n",
+        "code_executed": "(end_client.str.lower().str.contains('samsung'))"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n\n",
+        "code_executed": "(end_client.str.lower().like('%samsung%'))"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n\n",
+        "code_executed": "(end_client.str.lower() == 'samsung')"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client\n\n\n",
+        "code_executed": "((candidate_state.str.lower() == 'maryland') &\n (end_client.str.lower() == 'accenture it'))"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client\n\n\n",
+        "code_executed": "(end_client.str.lower() == 'maryland') & (client.str.lower() == 'accenture it')"
+    },
+    {
+        "query": "Give me the candidates with state of maryland end client and accenture IT client\n\n\n",
+        "code_executed": "(end_client.str.lower().str.contains('maryland')) & (client.str.lower().str.contains('accenture it'))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client \n",
+        "code_executed": "(end_client.str.lower() == 'microsoft')"
+    },
+    {
+        "query": "Give me the candidates with business analyst job title\n",
+        "code_executed": "job_title.str.lower().str.contains(\"business analyst\")"
+    },
+    {
+        "query": "Give me the candidates for business analyst job title\n",
+        "code_executed": "job_title.str.lower().str.contains('business analyst', case=False)"
+    },
+    {
+        "query": "Give me the candidates for business analyst job title\n",
+        "code_executed": "job_title.str.lower().str.contains(\"business analyst\")"
+    },
+    {
+        "query": "Give me the candidates for business analyst job title\n",
+        "code_executed": "(job_title.str.lower().str.contains(\"business analyst\"))"
+    },
+    {
+        "query": "Give me the candidates for business analyst job title",
+        "code_executed": "(job_title.notnull()) & (job_title.str.lower().str.contains(\"business analyst\"))"
+    },
+    {
+        "query": "Give me the candidates for business analyst job title",
+        "code_executed": "(job_title.notnull()) & (job_title.str.lower().str.contains(\"business analyst\"))"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n",
+        "code_executed": "(end_client.str.lower().notnull() & end_client.str.lower().str.contains(\"samsung\")) | (client.str.lower().notnull() & client.str.lower().str.contains(\"samsung\"))"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n",
+        "code_executed": "(end_client.notnull()) & (end_client.str.lower() == 'samsung')"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n",
+        "code_executed": "end_client.str.lower().str.contains(\"samsung\")"
+    },
+    {
+        "query": "Give me the candidates with transportation domain and active contract status\n\n",
+        "code_executed": "(domain.str.lower().notnull() & domain.str.lower().str.contains('transportation')) & (contract_status.str.lower().notnull() & contract_status.str.lower() == 'active')"
+    },
+    {
+        "query": "Give me the candidates with transportation domain and active contract status\n\n",
+        "code_executed": "(\n    (domain.str.lower().notnull()) &\n    (domain.str.lower().str.contains(\"transportation\")) &\n    (contract_status.str.lower().notnull()) &\n    (contract_status.str.lower() == \"active\")\n)"
+    },
+    {
+        "query": "Give me the candidates with transportation domain and active contract status\n\n",
+        "code_executed": "(domain.str.lower() == 'transportation') & (contract_status.str.lower() == 'active') & (domain.notnull()) & (contract_status.notnull())"
+    },
+    {
+        "query": "Give me the candidates for transportation domain and with active contract status\n\n",
+        "code_executed": "((domain.str.lower().notnull()) & (domain.str.lower().str.contains('transportation'))) &\n ((contract_status.str.lower().notnull()) & (contract_status.str.lower().str.contains('active')))"
+    },
+    {
+        "query": "Give me the candidates for transportation domain and with active contract status\n\n",
+        "code_executed": "(domain.str.lower().str.contains(\"transportation\") &\n contract_status.str.lower().str.contains(\"active\") &\n ~domain.isnull() &\n ~contract_status.isnull())"
+    },
+    {
+        "query": "Give me the candidates for transportation domain and with active contract status",
+        "code_executed": "(df['domain'].str.lower() == 'transportation') & (df['contract_status'].str.lower() == 'active')"
+    },
+    {
+        "query": "Give me the candidates with business analyst job title",
+        "code_executed": "df['job_title'].str.contains('Business Analyst', case=False) | df['domain'].str.contains('Business Analyst', case=False)"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client \n",
+        "code_executed": "((df['client'].str.lower().str.contains('microsoft')) | (df['end_client'].str.lower().str.contains('microsoft')))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills\n\n",
+        "code_executed": "(df['end_client'].str.lower() == 'microsoft') & ((df['primary_skills'].str.lower().str.contains('azure')) | (df['secondary_skills'].str.lower().str.contains('azure')) | (df['job_title'].str.lower().str.contains('azure')))"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills",
+        "code_executed": "(df['end_client'].str.lower().str.contains('microsoft')) & (df['primary_skills'].str.lower().str.contains('azure') | df['secondary_skills'].str.lower().str.contains('azure')) & (df['contract_status'] == 'active')"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills",
+        "code_executed": "((df['end_client'].str.lower() == 'microsoft') | (df['client'].str.lower() == 'microsoft')) & ((df['primary_skills'].str.lower().str.contains('azure')) | (df['secondary_skills'].str.lower().str.contains('azure')) | (df['domain'].str.lower().str.contains('azure')) | (df['job_title'].str.lower().str.contains('azure')))"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client \n",
+        "code_executed": "((df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra'))"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client and AT&T end client \n\n",
+        "code_executed": "(df['client'].str.lower() == 'tech mahindra') & (df['end_client'].str.lower() == 'at&t')"
+    },
+    {
+        "query": "Give the candidates for Tech Mahindra client, AT&T end client and with active contract status\n\n\n",
+        "code_executed": "(df['client'].str.lower() == 'tech mahindra') &(df['end_client'].str.lower() == 'att') &(df['contract_status'].str.lower() == 'active')"
+    },
+    {
+        "query": "Give the candidates for Tech Mahindra client, AT&T end client and with active contract status\n\n\n",
+        "code_executed": "df.query(\"client.str.lower() == 'tech mahindra' and end_client.str.lower() == 'at&t' and contract_status == 'active'\")"
+    },
+    {
+        "query": "Give the candidates for Tech Mahindra client, AT&T end client and with active contract status\n\n\n",
+        "code_executed": "df.query(    \"client.str.lower() == 'tech mahindra' and end_client.str.lower() == 'att' and contract_status == 'Active'\")"
+    },
+    {
+        "query": "Give the candidates for Tech Mahindra client, AT&T end client and with active contract status\n\n\n",
+        "code_executed": "(df['client'].str.lower() == 'tech mahindra') &(df['end_client'].str.lower() == 'at&t') &(df['contract_status'].str.lower() == 'active')"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client and AT&T end client \n",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') & (df['end_client'].str.lower() == 'at&t')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give the candidates for Tech Mahindra client, AT&T end client and with active contract status\n",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') & (df['end_client'].str.lower() == 'at&t') & (df['contract_status'].str.lower() == 'active')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates with network engineer job title and state CA\n\n",
+        "code_executed": "df[(df['job_title'].str.lower().str.contains('network engineer') | df['domain'].str.lower().str.contains('network engineer')) & (df['candidate_state'] == 'CA')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give the candidates for HCL client, Google end client with active contract status\n\n\n",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') & (df['end_client'].str.lower() == 'google') & (df['contract_status'].str.lower() == 'active')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give the clients for GCP, GCP Bigquery, gcp looker, gcp services gcp cloud and MGCP skills\n\n\n",
+        "code_executed": "df[df['primary_skills'].str.lower().str.contains('%gcp%') | \n   df['secondary_skills'].str.lower().str.contains('%gcp%') |\n   df['primary_skills'].str.lower().str.contains('%gcp bigquery%') | \n   df['secondary_skills'].str.lower().str.contains('%gcp bigquery%') |\n   df['primary_skills'].str.lower().str.contains('%gcp looker%') | \n   df['secondary_skills'].str.lower().str.contains('%gcp looker%') |\n   df['primary_skills'].str.lower().str.contains('%gcp services%') | \n   df['secondary_skills'].str.lower().str.contains('%gcp services%') |\n   df['primary_skills'].str.lower().str.contains('%gcp cloud%') | \n   df['secondary_skills'].str.lower().str.contains('%gcp cloud%') |\n   df['primary_skills'].str.lower().str.contains('%mgcp%') | \n   df['secondary_skills'].str.lower().str.contains('%mgcp%')][['client', 'end_client']].drop_duplicates()"
+    },
+    {
+        "query": "Give the number of clients for GCP, GCP Bigquery, gcp looker, gcp services gcp cloud and MGCP skills\n\n\n",
+        "code_executed": "df[(df['primary_skills'].str.lower().str.contains('%gcp%') | df['secondary_skills'].str.lower().str.contains('%gcp%') | df['primary_skills'].str.lower().str.contains('%gcp bigquery%') | df['secondary_skills'].str.lower().str.contains('%gcp bigquery%') | df['primary_skills'].str.lower().str.contains('%gcp looker%') | df['secondary_skills'].str.lower().str.contains('%gcp looker%') | df['primary_skills'].str.lower().str.contains('%gcp services%') | df['secondary_skills'].str.lower().str.contains('%gcp services%') | df['primary_skills'].str.lower().str.contains('%gcp cloud%') | df['secondary_skills'].str.lower().str.contains('%gcp cloud%') | df['primary_skills'].str.lower().str.contains('%mgcp%') | df['secondary_skills'].str.lower().str.contains('%mgcp%'))]['client'].nunique()"
+    },
+    {
+        "query": "Give the candidates either having GCP, GCP Bigquery, gcp looker, gcp services gcp cloud and MGCP skills or job title as GCP Architect\n\n\n",
+        "code_executed": "df[(df['primary_skills'].str.lower().str.contains('gcp') | \n    df['primary_skills'].str.lower().str.contains('gcp bigquery') | \n    df['primary_skills'].str.lower().str.contains('gcp looker') | \n    df['primary_skills'].str.lower().str.contains('gcp services') | \n    df['primary_skills'].str.lower().str.contains('gcp cloud') | \n    df['primary_skills'].str.lower().str.contains('mgcp') | \n    df['secondary_skills'].str.lower().str.contains('gcp') | \n    df['secondary_skills'].str.lower().str.contains('gcp bigquery') | \n    df['secondary_skills'].str.lower().str.contains('gcp looker') | \n    df['secondary_skills'].str.lower().str.contains('gcp services') | \n    df['secondary_skills'].str.lower().str.contains('gcp cloud') | \n    df['secondary_skills'].str.lower().str.contains('mgcp') | \n    df['job_title'].str.lower().str.contains('gcp architect'))][['candidate_id', 'candidate_name', 'contract_id']].drop_duplicates()"
+    },
+    {
+        "query": "Give me the candidates either having GCP, GCP Bigquery, gcp looker, gcp services, gcp cloud, MGCP as skills or having job title as cloud engineer\n",
+        "code_executed": "df[\n    (df[\"contract_status\"] == \"Active\")\n    & (\n        df[\"primary_skills\"].str.lower().str.contains(\"gcp\")\n        | df[\"primary_skills\"].str.lower().str.contains(\"gcp bigquery\")\n        | df[\"primary_skills\"].str.lower().str.contains(\"gcp looker\")\n        | df[\"primary_skills\"].str.lower().str.contains(\"gcp services\")\n        | df[\"primary_skills\"].str.lower().str.contains(\"gcp cloud\")\n        | df[\"primary_skills\"].str.lower().str.contains(\"mgcp\")\n        | df[\"secondary_skills\"].str.lower().str.contains(\"gcp\")\n        | df[\"secondary_skills\"].str.lower().str.contains(\"gcp bigquery\")\n        | df[\"secondary_skills\"].str.lower().str.contains(\"gcp looker\")\n        | df[\"secondary_skills\"].str.lower().str.contains(\"gcp services\")\n        | df[\"secondary_skills\"].str.lower().str.contains(\"gcp cloud\")\n        | df[\"secondary_skills\"].str.lower().str.contains(\"mgcp\")\n        | df[\"job_title\"].str.lower().str.contains(\"cloud engineer\")\n        | df[\"domain\"].str.lower().str.contains(\"cloud engineer\")\n    )\n][[\"candidate_id\", \"candidate_name\", \"contract_id\"]]"
+    },
+    {
+        "query": "Give the candidates either having GCP, GCP Bigquery, gcp looker, gcp services gcp cloud and MGCP skills or job title as GCP Architect\n",
+        "code_executed": "df[(df['contract_status'] == 'Active') & ((df['primary_skills'].str.lower().str.contains('gcp')) | (df['primary_skills'].str.lower().str.contains('gcp bigquery')) | (df['primary_skills'].str.lower().str.contains('gcp looker')) | (df['primary_skills'].str.lower().str.contains('gcp services gcp cloud')) | (df['primary_skills'].str.lower().str.contains('mgcp')) | (df['secondary_skills'].str.lower().str.contains('gcp')) | (df['secondary_skills'].str.lower().str.contains('gcp bigquery')) | (df['secondary_skills'].str.lower().str.contains('gcp looker')) | (df['secondary_skills'].str.lower().str.contains('gcp services gcp cloud')) | (df['secondary_skills'].str.lower().str.contains('mgcp')) | (df['job_title'].str.lower().str.contains('gcp architect')))][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give the candidates either having GCP, GCP Bigquery, gcp looker, gcp services gcp cloud and MGCP skills or job title as GCP Architect",
+        "code_executed": "df[df['primary_skills'].str.lower().str.contains('|'.join(['gcp', 'gcp bigquery', 'gcp looker', 'gcp services gcp cloud', 'mgcp'])) | \n   df['secondary_skills'].str.lower().str.contains('|'.join(['gcp', 'gcp bigquery', 'gcp looker', 'gcp services gcp cloud', 'mgcp'])) | \n   df['job_title'].str.lower().str.contains('gcp architect')][['candidate_id', 'candidate_name', 'contract_id']].drop_duplicates()"
+    },
+    {
+        "query": "Give me the candidates either having GCP, GCP Bigquery, gcp looker, gcp services, gcp cloud, MGCP as skills or having job title as cloud engineer",
+        "code_executed": "df[(df['primary_skills'].str.lower().str.contains('gcp') | df['primary_skills'].str.lower().str.contains('gcp bigquery') | df['primary_skills'].str.lower().str.contains('gcp looker') | df['primary_skills'].str.lower().str.contains('gcp services') | df['primary_skills'].str.lower().str.contains('gcp cloud') | df['primary_skills'].str.lower().str.contains('mgcp') | df['secondary_skills'].str.lower().str.contains('gcp') | df['secondary_skills'].str.lower().str.contains('gcp bigquery') | df['secondary_skills'].str.lower().str.contains('gcp looker') | df['secondary_skills'].str.lower().str.contains('gcp services') | df['secondary_skills'].str.lower().str.contains('gcp cloud') | df['secondary_skills'].str.lower().str.contains('mgcp') | df['job_title'].str.lower().str.contains('cloud engineer') | df['domain'].str.lower().str.contains('cloud engineer'))][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client \n",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client \n",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client \n",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client \n",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client \n",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client \n",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client ",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client ",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client \n",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client ",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client ",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client \n",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client \n",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for Samsung end client \n\n",
+        "code_executed": "df[df['end_client'].str.lower() == 'samsung'][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give the candidates for HCL client, Google end client with active contract status\n\n",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') & (df['end_client'].str.lower() == 'google') & (df['contract_status'].str.lower() == 'active')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give the number of clients for agile principles skills\n",
+        "code_executed": "df[(df['primary_skills'].str.contains('agile principles', case=False)) | (df['secondary_skills'].str.contains('agile principles', case=False))]['client'].nunique()"
+    },
+    {
+        "query": "Give the number of candidates for agile principles skills\n",
+        "code_executed": "df[(df['primary_skills'].str.contains('agile principles', case=False)) | (df['secondary_skills'].str.contains('agile principles', case=False))]['candidate_id'].nunique()"
+    },
+    {
+        "query": "Give the candidates for agile principles skills\n",
+        "code_executed": "df[(df['primary_skills'].str.contains('agile principles', case=False)) | (df['secondary_skills'].str.contains('agile principles', case=False))][['candidate_id', 'candidate_name']]"
+    },
+    {
+        "query": "Give the clients for agile principles skills\n",
+        "code_executed": "df[(df['primary_skills'].str.contains('Agile Principles', case=False)) | (df['secondary_skills'].str.contains('Agile Principles', case=False))][['client', 'end_client']].drop_duplicates()"
+    },
+    {
+        "query": "Give the top 10 clients for agile principles skills\n",
+        "code_executed": "df[(df['primary_skills'].str.contains('agile principles', case=False)) | (df['secondary_skills'].str.contains('agile principles', case=False))]['client'].value_counts().head(10)"
+    },
+    {
+        "query": "Give the end clients for agile principles skills\n",
+        "code_executed": "df[(df['primary_skills'].str.contains('agile principles', case=False)) | (df['secondary_skills'].str.contains('agile principles', case=False))]['end_client'].unique()"
+    },
+    {
+        "query": "Give the clients for agile principles skills\n",
+        "code_executed": "pd.concat([df[df['primary_skills'].str.contains('agile principles', case=False)]['client'], df[df['secondary_skills'].str.contains('agile principles', case=False)]['client'], df[df['primary_skills'].str.contains('agile principles', case=False)]['end_client'], df[df['secondary_skills'].str.contains('agile principles', case=False)]['end_client']]).unique()"
+    },
+    {
+        "query": "Give the clients for agile principles skills\n",
+        "code_executed": "pd.concat([df[df['primary_skills'].str.contains('agile principles', case=False)]['client'], df[df['secondary_skills'].str.contains('agile principles', case=False)]['client'], df[df['primary_skills'].str.contains('agile principles', case=False)]['end_client'], df[df['secondary_skills'].str.contains('agile principles', case=False)]['end_client']]).drop_duplicates()"
+    },
+    {
+        "query": "Give the clients for agile principles skills\n",
+        "code_executed": "pd.concat([df[df['primary_skills'].str.contains('agile principles', case=False)]['client'], df[df['secondary_skills'].str.contains('agile principles', case=False)]['client'], df[df['primary_skills'].str.contains('agile principles', case=False)]['end_client'], df[df['secondary_skills'].str.contains('agile principles', case=False)]['end_client']]).unique()"
+    },
+    {
+        "query": "Give the candidates for agile principles skills\n",
+        "code_executed": "df[(df['primary_skills'].str.contains('Agile Principles', case=False)) | (df['secondary_skills'].str.contains('Agile Principles', case=False))][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "How many placements does Mindtree have for candidates with Agile Principles skills?",
+        "code_executed": "df[(df['primary_skills'].str.contains('Agile Principles', case=False) | df['secondary_skills'].str.contains('Agile Principles', case=False)) & ((df['client'] == 'Mindtree') | (df['end_client'] == 'Mindtree'))]['candidate_id'].nunique()"
+    },
+    {
+        "query": "How many candidates does Mindtree have for candidates with Agile Principles skills?",
+        "code_executed": "df[(df['primary_skills'].str.contains('Agile Principles', case=False) | df['secondary_skills'].str.contains('Agile Principles', case=False)) & ((df['client'] == 'Mindtree') | (df['end_client'] == 'Mindtree'))]['candidate_id'].nunique()"
+    },
+    {
+        "query": "Give me the candidates for mindtree client and agile principles skills\n",
+        "code_executed": "df[(df['client'].str.contains('mindtree', case=False) | df['end_client'].str.contains('mindtree', case=False)) & (df['primary_skills'].str.contains('agile principles', case=False) | df['secondary_skills'].str.contains('agile principles', case=False))][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for mindtree client and agile principles skills\n",
+        "code_executed": "df[(df['client'].str.contains('mindtree', case=False) | df['end_client'].str.contains('mindtree', case=False)) & (df['primary_skills'].str.contains('agile principles', case=False) | df['secondary_skills'].str.contains('agile principles', case=False))][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "How many candidates at Mindtree have Agile Principles as a skill",
+        "code_executed": "df[(df['primary_skills'].str.contains('Agile Principles', case=False) | df['secondary_skills'].str.contains('Agile Principles', case=False)) & ((df['client'] == 'Mindtree') | (df['end_client'] == 'Mindtree'))]['candidate_id'].nunique()"
+    },
+    {
+        "query": "Create a bar chart showing the number of Mindtree candidates with Agile Principles skills. Use 'Skill' on the x-axis and 'Placements' on the y-axis",
+        "code_executed": "(df[(df['client'] == 'Mindtree') | (df['end_client'] == 'Mindtree')]['primary_skills']\n .str.contains('Agile Principles', case=False)\n .map({True: 'Agile Principles', False: 'Other'})\n .value_counts()\n .rename('Placements')\n .to_frame()\n .reset_index()\n .rename(columns={'index': 'Skill'}))"
+    },
+    {
+        "query": "Create a bar chart showing the number of Mindtree candidates with Agile Principles skills. Use 'Skill' on the x-axis and 'Placements' on the y-axis",
+        "code_executed": "(df[(df['client'] == 'Mindtree') | (df['end_client'] == 'Mindtree')]\n .assign(Skill=lambda x: np.where((x['primary_skills'].str.contains('Agile Principles', case=False)) | (x['secondary_skills'].str.contains('Agile Principles', case=False)), 'Agile Principles', 'Other'))\n .groupby('Skill')['candidate_id'].nunique()\n .plot(kind='bar', xlabel='Skill', ylabel='Placements'))"
+    },
+    {
+        "query": "Create a bar chart showing the number of Mindtree candidates with Agile Principles skills. Use 'Skill' on the x-axis and 'Placements' on the y-axis",
+        "code_executed": "df['Skill'] = np.where(df['primary_skills'].str.contains('Agile Principles', case=False) | df['secondary_skills'].str.contains('Agile Principles', case=False), 'Agile Principles', 'Other')\n(\n    df[(df['client'] == 'Mindtree') | (df['end_client'] == 'Mindtree')]\n    .groupby('Skill')['candidate_id']\n    .nunique()\n    .plot(kind='bar', xlabel='Skill', ylabel='Placements')\n)"
+    },
+    {
+        "query": "How many candidates at Mindtree have Agile Principles as a skill?",
+        "code_executed": "df[(df['primary_skills'].str.contains('Agile Principles', case=False) | df['secondary_skills'].str.contains('Agile Principles', case=False)) & ((df['client'] == 'Mindtree') | (df['end_client'] == 'Mindtree'))]['candidate_id'].nunique()"
+    },
+    {
+        "query": "How many candidates at Mindtree have Agile Principles as a skill",
+        "code_executed": "df[(df['primary_skills'].str.contains('Agile Principles', case=False) | df['secondary_skills'].str.contains('Agile Principles', case=False)) & ((df['client'] == 'Mindtree') | (df['end_client'] == 'Mindtree'))]['candidate_id'].nunique()"
+    },
+    {
+        "query": "How many candidates have Java skills",
+        "code_executed": "df[(df['primary_skills'].str.contains('Java', case=False)) | (df['secondary_skills'].str.contains('Java', case=False))]['candidate_id'].nunique()"
+    },
+    {
+        "query": "give the candidates with Java skills",
+        "code_executed": "df[(df['primary_skills'].str.contains('Java', case=False)) | (df['secondary_skills'].str.contains('Java', case=False))][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client \n",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client \n",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for Tech Mahindra client ",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "give me the candidates with average pay rate and maximum pay rate for education domain",
+        "code_executed": "df[df['domain'].str.lower() == 'education'].groupby(['candidate_id', 'candidate_name'])['pay_rate'].agg(['mean', 'max'])"
+    },
+    {
+        "query": "give me the average pay rate for client HCL",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')]['pay_rate'].mean()"
+    },
+    {
+        "query": "give me the average pay rate for HCL client",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')]['pay_rate'].mean()"
+    },
+    {
+        "query": "give me the candidates with average pay rate for HCL client",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')].groupby(['candidate_id', 'candidate_name', 'contract_id'])['pay_rate'].mean().reset_index()"
+    },
+    {
+        "query": "give me the candidates with average pay rate for HCL client",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')].groupby(['candidate_id', 'candidate_name', 'contract_id'])['pay_rate'].mean().reset_index()"
+    },
+    {
+        "query": "Give me the average pay rate for the client HCL",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')]['pay_rate'].mean()"
+    },
+    {
+        "query": "Give me the average pay rate for the client HCL",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')]['pay_rate'].mean()"
+    },
+    {
+        "query": "Give me the candidates with average pay rate for the client HCL",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')].groupby(['candidate_name', 'candidate_id', 'contract_id'])['pay_rate'].mean().reset_index()"
+    },
+    {
+        "query": "Give me the candidates with total average pay rate for the client HCL",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')].groupby(['candidate_id', 'candidate_name'])['pay_rate'].mean().reset_index(name='average_pay_rate')"
+    },
+    {
+        "query": "give me the domain, client, end client and the respective count in ascending order",
+        "code_executed": "df.groupby(['domain', 'client', 'end_client'])['domain'].count().reset_index(name='count').sort_values(by='count')"
+    },
+    {
+        "query": "give the total average pay rate for HCL client",
+        "code_executed": "df[(df['client'].str.contains('HCL', case=False)) | (df['end_client'].str.contains('HCL', case=False))]['pay_rate'].mean()\ntotal_average_pay_rate = df_result['pay_rate'].mean()"
+    },
+    {
+        "query": "give the average pay rate for HCL client",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')]['pay_rate'].mean()\ntotal_average_pay_rate = df_result['pay_rate'].mean()"
+    },
+    {
+        "query": "give the candidates with average pay rate for HCL client",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')].groupby(['candidate_id', 'candidate_name'])['pay_rate'].mean().reset_index()\ntotal_average_pay_rate = df_result['pay_rate'].mean()"
+    },
+    {
+        "query": "give the candidates with average pay rate for HCL client",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')].groupby(['candidate_id', 'candidate_name'])['pay_rate'].mean().reset_index(name='average_pay_rate')\ntotal_average_pay_rate = df_result['pay_rate'].mean()"
+    },
+    {
+        "query": "give the domain, client, end client and the respective count in ascending order",
+        "code_executed": "df.groupby(['domain', 'client', 'end_client'])['domain'].count().reset_index(name='count').sort_values(by='count')"
+    },
+    {
+        "query": "give top 5 candidates with HCL client",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')][['candidate_name', 'candidate_id', 'contract_id']].head(5)"
+    },
+    {
+        "query": "give top 5 skills with HCL client",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')][['primary_skills', 'secondary_skills']].head(5)"
+    },
+    {
+        "query": "give top 5 skills with HCL client",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')]['primary_skills'].value_counts().head(5)"
+    },
+    {
+        "query": "give top 5 skills with HCL client",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')][['primary_skills', 'secondary_skills']].head(5)"
+    },
+    {
+        "query": "give the candidates with top 5 skills with HCL client",
+        "code_executed": "(df[(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')].groupby(['primary_skills', 'secondary_skills'], dropna=False)\n .size()\n .reset_index(name='count')\n .sort_values('count', ascending=False)\n .head(5))[['candidate_name', 'candidate_id', 'contract_id', 'primary_skills', 'secondary_skills']]"
+    },
+    {
+        "query": "give the top 5 candidates with skills and with HCL client",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') | (df['end_client'].str.lower() == 'hcl')][['candidate_id', 'candidate_name', 'contract_id', 'primary_skills', 'secondary_skills']].head(5)"
+    },
+    {
+        "query": "I need to get the top 10 skills based on the number of consultants, along with their average and maximum margins. Please provide the SQL query to achieve this, and then convert it into pandas code to run on my DataFrame named `df`. The resulting table should have columns: `skill_name`, `Consultants`, `Avg Margin`, and `Max Margin`. The table should be sorted by the number of consultants in descending order.\n",
+        "code_executed": "import pandas as pd\n\nConsultantSkills = pd.concat([df[['candidate_id', 'primary_skills']].rename(columns={'primary_skills': 'skill'}), \n                             df[['candidate_id', 'secondary_skills']].rename(columns={'secondary_skills': 'skill'})])\nConsultantSkillCounts = ConsultantSkills.groupby('skill')['candidate_id'].nunique().sort_values(ascending=False).reset_index(name='consultant_count').head(10)\nresult_df = ConsultantSkillCounts.merge(ConsultantSkills, on='skill').merge(df, on='candidate_id')\nresult_df = result_df.groupby(['skill', 'consultant_count'])[['pay_rate']].agg(['mean', 'max']).reset_index()\nresult_df.columns = ['skill_name', 'Consultants', 'Avg Margin', 'Max Margin']\nresult_df = result_df.sort_values(by='Consultants', ascending=False)\nprint(result_df)\ntotal_average_pay_rate = df_result['pay_rate'].mean()"
+    },
+    {
+        "query": "give the top 10 skills for tech mahindra client",
+        "code_executed": "import pandas as pd\ndf_filtered = df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')]\nprimary_skills_counts = df_filtered.groupby('primary_skills').size().reset_index(name='skill_count')\nsecondary_skills_counts = df_filtered.groupby('secondary_skills').size().reset_index(name='skill_count')\ncombined_skills_counts = pd.concat([primary_skills_counts, secondary_skills_counts]).groupby('primary_skills', as_index=False).sum().sort_values(by='skill_count', ascending=False)\ntop_10_skills = combined_skills_counts.head(10)"
+    },
+    {
+        "query": "give the top 10 skills for tech mahindra client",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')].groupby(['primary_skills', 'secondary_skills', 'client'])[['client']].size().reset_index(name='count').sort_values(by='count', ascending=False).head(10)"
+    },
+    {
+        "query": "Give the candidates for HCL client, Google end client with active contract status\n",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') & (df['end_client'].str.lower() == 'google') & (df['contract_status'].str.lower() == 'active')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give the candidates for HCL client, Google end client with active contract status\n",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') & (df['end_client'].str.lower() == 'google') & (df['contract_status'].str.lower() == 'active')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give the candidates for HCL client, Google end client with active contract status\n",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') & (df['end_client'].str.lower() == 'google') & (df['contract_status'].str.lower() == 'active')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give the candidates for HCL client, Google end client with active contract status\n",
+        "code_executed": "df[(df['client'].str.lower() == 'hcl') & (df['end_client'].str.lower() == 'google') & (df['contract_status'].str.lower() == 'active')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "give the candidates with dimiour LLC entity",
+        "code_executed": "df[df['entity'].str.lower() == 'dimiour llc'][['candidate_id', 'candidate_name']]"
+    },
+    {
+        "query": "give the candidates with active contract status and C2C contractor status",
+        "code_executed": "df[(df['contract_status'] == 'active') & (df['contractor_status'] == 'C2C')][['candidate_id', 'candidate_name']]"
+    },
+    {
+        "query": "give the candidates with C2C contractor_status",
+        "code_executed": "df[df['contractor_status'].str.lower() == 'c2c'][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "give the candidates with C2C contractor_status and with active contract status",
+        "code_executed": "df[(df['contractor_status'].str.lower() == 'c2c') & (df['contract_status'].str.lower() == 'active')][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "give the candidates with clients HCL, accenture IT and tech mahindra ",
+        "code_executed": "df[(df['client'].isin(['HCL', 'accenture IT', 'tech mahindra']) | df['end_client'].isin(['HCL', 'accenture IT', 'tech mahindra']))][['candidate_id', 'candidate_name']].drop_duplicates()"
+    },
+    {
+        "query": "give the candidates with clients HCL and tech mahindra ",
+        "code_executed": "df[(df['client'].isin(['HCL', 'tech mahindra']) | df['end_client'].isin(['HCL', 'tech mahindra']))][['candidate_name', 'candidate_id', 'contract_id']].drop_duplicates()"
+    },
+    {
+        "query": "give the candidates with tech mahindra and hcl clients",
+        "code_executed": "df[(df['client'].str.lower().isin(['tech mahindra', 'hcl'])) | (df['end_client'].str.lower().isin(['tech mahindra', 'hcl']))][['candidate_name', 'candidate_id', 'contract_id']]"
+    },
+    {
+        "query": "give the candidates with tech mahindra and hcl clients",
+        "code_executed": "df[(df['client'].str.lower().isin(['tech mahindra', 'hcl'])) | (df['end_client'].str.lower().isin(['tech mahindra', 'hcl']))][['candidate_name', 'candidate_id', 'contract_id']]"
+    },
+    {
+        "query": "give the candidates with tech mahindra and hcl clients",
+        "code_executed": "df[(df['client'].isin(['tech mahindra', 'hcl'])) | (df['end_client'].isin(['tech mahindra', 'hcl']))][['candidate_name', 'candidate_id', 'contract_id']]"
+    },
+    {
+        "query": "give the candidates with tech mahindra and hcl clients",
+        "code_executed": "df[(df['client'].str.lower().isin(['tech mahindra', 'hcl'])) | (df['end_client'].str.lower().isin(['tech mahindra', 'hcl']))][['candidate_name', 'candidate_id', 'contract_id']]"
+    },
+    {
+        "query": "give the candidates with tech mahindra and hcl clients",
+        "code_executed": "df[(df['client'].str.lower().isin(['tech mahindra', 'hcl'])) | (df['end_client'].str.lower().isin(['tech mahindra', 'hcl']))][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "give the candidates for tech mahindra and hcl clients",
+        "code_executed": "df[(df['client'].str.lower().isin(['tech mahindra', 'hcl'])) | (df['end_client'].str.lower().isin(['tech mahindra', 'hcl']))][['candidate_name', 'candidate_id', 'contract_id']].drop_duplicates()"
+    },
+    {
+        "query": "give the contractor for tech mahindra and hcl clients",
+        "code_executed": "df[(df['client'].isin(['tech mahindra', 'hcl']) | df['end_client'].isin(['tech mahindra', 'hcl']))]['contractor'].unique()"
+    },
+    {
+        "query": "give the contractor for tech mahindra and hcl clients",
+        "code_executed": "df[(df['client'].isin(['tech mahindra', 'hcl'])) | (df['end_client'].isin(['tech mahindra', 'hcl']))]['contractor'].unique()"
+    },
+    {
+        "query": "give the contractor for tech mahindra and hcl clients",
+        "code_executed": "df[df['client'].str.lower().isin(['tech mahindra', 'hcl'])]['contractor'].unique()"
+    },
+    {
+        "query": "give the candidates for tech mahindra and hcl clients",
+        "code_executed": "df[(df['client'].str.lower().isin(['tech mahindra', 'hcl'])) | (df['end_client'].str.lower().isin(['tech mahindra', 'hcl']))][['candidate_name', 'candidate_id', 'contract_id']].drop_duplicates()"
+    },
+    {
+        "query": "give the end clients for tech mahindra and hcl clients",
+        "code_executed": "df[df['client'].isin(['Tech Mahindra', 'HCL'])]['end_client'].unique()"
+    },
+    {
+        "query": "give the top 10 candidates for tech mahindra client",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')][['candidate_name', 'candidate_id', 'contract_id']].head(10)"
+    },
+    {
+        "query": "give the top 10 domain for tech mahindra client",
+        "code_executed": "df[df['client'].str.lower() == 'tech mahindra'].groupby('domain').size().sort_values(ascending=False).head(10)"
+    },
+    {
+        "query": "give the converted pay rate and converted client rate for Robert Half technologies clients",
+        "code_executed": "# give the converted pay rate and converted client rate for Robert Half technologies clients\n# Please provide the conversion rate and currency you want to convert to. For example: convert to USD with a conversion rate of 1.1.\n\n# Please provide the conversion rate and target currency\nconversion_rate = 1.1  # Example: convert to USD\ntarget_currency = 'USD'  # Example: convert to USD\n\n# Filter for Robert Half technologies clients\ndf_filtered = df[(df['client'].str.lower() == 'robert half technologies') | (df['end_client'].str.lower() == 'robert half technologies')]\n\n# Convert pay rate and client rate\ndf_filtered['converted_pay_rate'] = df_filtered['pay_rate'] * conversion_rate\ndf_filtered['converted_client_rate'] = df_filtered['client_rate'] * conversion_rate\n\n# Display the converted rates\nprint(df_filtered[['converted_pay_rate', 'converted_client_rate']])"
+    },
+    {
+        "query": "give the top 5 contract source",
+        "code_executed": "df.groupby('contract_source').size().sort_values(ascending=False).head(5)"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client and Azure skills\n",
+        "code_executed": "df[(df['end_client'].str.lower() == 'microsoft') & ((df['primary_skill'].str.lower().str.contains('azure')) | (df['secondary_skill'].str.lower().str.contains('azure')))][['candidate_id', 'candidate_name', 'contract_id']].drop_duplicates()"
+    },
+    {
+        "query": "give the top 10 domain for tech mahindra client\n\n",
+        "code_executed": "df[(df['client'].str.lower() == 'tech mahindra') | (df['end_client'].str.lower() == 'tech mahindra')]['domain'].value_counts().head(10)"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client \n\n",
+        "code_executed": "df[df['end_client'].str.lower() == 'microsoft'][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client",
+        "code_executed": "df[df['end_client'].str.lower() == 'microsoft'][['candidate_id', 'candidate_name', 'contract_id']].drop_duplicates()"
+    },
+    {
+        "query": "Give me the client rate and pay rate for verifone client",
+        "code_executed": "df[(df['client'].str.lower() == 'verifone') | (df['end_client'].str.lower() == 'verifone') & (df['margin'] > 0)][['client_rate', 'pay_rate']]"
+    },
+    {
+        "query": "Give me the average client rate and pay rate for verifone client",
+        "code_executed": "df[(df['client'].str.lower() == 'verifone') | (df['end_client'].str.lower() == 'verifone') & (df['margin'] > 0)][['client_rate', 'pay_rate']].mean()"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client",
+        "code_executed": "df[df['end_client'].str.contains('microsoft', case=False)][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give me the candidates for microsoft end client",
+        "code_executed": "df[df['end_client'].str.lower() == 'microsoft'][['candidate_id', 'candidate_name', 'contract_id']]"
+    },
+    {
+        "query": "Give the top 5 contract source",
+        "code_executed": "df.groupby('contract_source').size().sort_values(ascending=False).head(5)"
+    },
+    {
+        "query": "give the client rate and pay rate for verifone client and SparkFX individually ",
+        "code_executed": "df[(df['client'].str.lower().isin(['verifone', 'sparkfx'])) & (df['margin'] > 0)][['client', 'client_rate', 'pay_rate']]"
+    },
+    {
+        "query": "give the contractors with active contract status",
+        "code_executed": "df[df['contract_status'].str.lower() == 'active']['candidate_name'].drop_duplicates()"
+    },
+    {
+        "query": "give the vendors with active contract status",
+        "code_executed": "df[df['contract_status'].str.lower() == 'active']['vendor'].unique()"
+    },
+    {
+        "query": "give the vendor with active contract status",
+        "code_executed": "df[df['contract_status'].str.lower() == 'active']['vendor'].unique()"
+    },
+    {
+        "query": "give the number of vendors with active contract status",
+        "code_executed": "df[df['contract_status'].str.lower() == 'active']['vendor'].nunique()"
+    },
+    {
+        "query": "give the number of clients with active contract status",
+        "code_executed": "df[df['contract_status'].str.lower() == 'active']['client'].nunique()"
+    },
+    {
+        "query": "give the number of clients with active contract status",
+        "code_executed": "df[df['contract_status'].str.lower() == 'active']['client'].nunique()"
+    },
+    {
+        "query": "give the client rate and pay rate for verifone client and SparkFX individually \n",
+        "code_executed": "df[(df['client'].str.lower().isin(['verifone', 'sparkfx'])) & (df['margin'] > 0)][['client', 'client_rate', 'pay_rate']]"
+    },
+    {
+        "query": "give the client rate and pay rate for education domain and mining domain  individually \n",
+        "code_executed": "df[(df['domain'].str.lower().isin(['education', 'mining'])) & (df['margin'] > 0)][['domain', 'client_rate', 'pay_rate']]"
+    },
+    {
+        "query": "give the average client rate and pay rate for education domain and mining domain  individually \n",
+        "code_executed": "df[(df['domain'].str.lower().isin(['education', 'mining'])) & (df['margin'] > 0)].groupby('domain').agg({'client_rate': 'mean', 'pay_rate': 'mean'}).rename(columns={'client_rate': 'average_client_rate', 'pay_rate': 'average_pay_rate'})"
+    },
+    {
+        "query": "give the client rate and pay rate for education domain\n",
+        "code_executed": "df[(df['domain'].str.lower() == 'education') & (df['margin'] > 0)][['client_rate', 'pay_rate']]"
+    },
+    {
+        "query": "give the average client rate and average pay rate for education domain\n",
+        "code_executed": "df[df['domain'].str.lower() == 'education'][['client_rate', 'pay_rate']].mean()"
+    },
+    {
+        "query": "give the client rate and pay rate for agriculture domain",
+        "code_executed": "df[(df['domain'].str.lower() == 'agriculture') & (df['client_rate'] > df['pay_rate'])][['client_rate', 'pay_rate']]"
+    },
+    {
+        "query": "give the client rate, pay rate and average margin for agriculture domain",
+        "code_executed": "df[ (df['domain'].str.lower() == 'agriculture') & (df['margin'] > 0) ][['client_rate', 'pay_rate', 'margin']].groupby(by=['client_rate', 'pay_rate']).agg({'margin': 'mean'}).reset_index()"
+    },
+    {
+        "query": "give the client rate, pay rate and average margin for agriculture domain and the top 5 clients associated with their respective count",
+        "code_executed": "client_count = df[df['domain'].str.lower() == 'agriculture'].groupby('client').size().reset_index(name='client_count').sort_values(by='client_count', ascending=False).head(5)\nresult = df[df['domain'].str.lower() == 'agriculture'].merge(client_count, on='client').groupby(['client', 'client_rate', 'pay_rate'])['margin'].mean().reset_index(name='average_margin')"
+    }
+]

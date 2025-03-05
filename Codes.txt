@@ -1,0 +1,3 @@
+source Scripts/activate
+python chatbot.py
+streamlit run chatbot.py

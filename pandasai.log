@@ -1,0 +1,1277 @@
+2024-07-22 10:36:41 [INFO] Question: Generate relevant graphs for this dataset based on the query: Give me the candidates for Tech Mahindra client 
+2024-07-22 10:36:41 [INFO] Running PandasAI with google-gemini LLM...
+2024-07-22 10:36:41 [INFO] Prompt ID: 11df07fb-6909-4645-9391-6abf31d6105f
+2024-07-22 10:36:41 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-22 10:36:41 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-22 10:36:41 [INFO] Executing Step 1: CacheLookup
+2024-07-22 10:36:41 [INFO] Executing Step 2: PromptGeneration
+2024-07-22 10:36:41 [INFO] Using prompt: <dataframe>
+dfs[0]:0x0
+
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the candidates for Tech Mahindra client 
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-22 10:36:41 [INFO] Executing Step 3: CodeGenerator
+2024-07-22 10:36:46 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:0x0
+
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the candidates for Tech Mahindra client 
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-07-22 10:36:46 [INFO] Code generated:
+            ```
+            import pandas as pd
+import matplotlib.pyplot as plt
+
+# Write code here
+
+# Get the candidates for Tech Mahindra client
+tech_mahindra_candidates = dfs[0][dfs[0]['Client'] == 'Tech Mahindra']
+
+# Plot a bar chart of the number of candidates by job title
+tech_mahindra_candidates['Job Title'].value_counts().plot.bar()
+plt.xlabel('Job Title')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Job Title for Tech Mahindra Client')
+plt.savefig('tech_mahindra_candidates_by_job_title.png')
+
+# Plot a pie chart of the number of candidates by experience level
+tech_mahindra_candidates['Experience Level'].value_counts().plot.pie()
+plt.xlabel('Experience Level')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Experience Level for Tech Mahindra Client')
+plt.savefig('tech_mahindra_candidates_by_experience_level.png')
+
+# Declare result var: 
+result = { "type": "plot", "value": "tech_mahindra_candidates_by_job_title.png" }
+            ```
+            
+2024-07-22 10:36:46 [INFO] Executing Step 4: CachePopulation
+2024-07-22 10:36:46 [INFO] Executing Step 5: CodeCleaning
+2024-07-22 10:36:46 [INFO] Saving charts to C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\exports\charts\temp_chart.png
+2024-07-22 10:36:46 [INFO] 
+Code running:
+```
+tech_mahindra_candidates = dfs[0][dfs[0]['Client'] == 'Tech Mahindra']
+tech_mahindra_candidates['Job Title'].value_counts().plot.bar()
+plt.xlabel('Job Title')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Job Title for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+tech_mahindra_candidates['Experience Level'].value_counts().plot.pie()
+plt.xlabel('Experience Level')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Experience Level for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+        ```
+2024-07-22 10:36:46 [INFO] Executing Step 6: CodeExecution
+2024-07-22 10:36:46 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\indexes\range.py", line 417, in get_loc
+    raise KeyError(key)
+KeyError: 'Client'
+
+2024-07-22 10:36:46 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-07-22 10:36:46 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-07-22 10:36:46 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-07-22 10:36:46 [INFO] Using prompt: <dataframe>
+dfs[0]:0x0
+
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the candidates for Tech Mahindra client 
+
+You generated this python code:
+tech_mahindra_candidates = dfs[0][dfs[0]['Client'] == 'Tech Mahindra']
+tech_mahindra_candidates['Job Title'].value_counts().plot.bar()
+plt.xlabel('Job Title')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Job Title for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+tech_mahindra_candidates['Experience Level'].value_counts().plot.pie()
+plt.xlabel('Experience Level')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Experience Level for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\indexes\range.py", line 417, in get_loc
+    raise KeyError(key)
+KeyError: 'Client'
+
+
+Fix the python code above and return the new python code:
+2024-07-22 10:36:46 [INFO] Executing Step 1: CodeGenerator
+2024-07-22 10:36:51 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:0x0
+
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the candidates for Tech Mahindra client 
+
+You generated this python code:
+tech_mahindra_candidates = dfs[0][dfs[0]['Client'] == 'Tech Mahindra']
+tech_mahindra_candidates['Job Title'].value_counts().plot.bar()
+plt.xlabel('Job Title')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Job Title for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+tech_mahindra_candidates['Experience Level'].value_counts().plot.pie()
+plt.xlabel('Experience Level')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Experience Level for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\indexes\range.py", line 417, in get_loc
+    raise KeyError(key)
+KeyError: 'Client'
+
+
+Fix the python code above and return the new python code:
+            
+2024-07-22 10:36:51 [INFO] Code generated:
+            ```
+            tech_mahindra_candidates = dfs[0][dfs[0]['Client Name'] == 'Tech Mahindra']
+tech_mahindra_candidates['Job Title'].value_counts().plot.bar()
+plt.xlabel('Job Title')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Job Title for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+tech_mahindra_candidates['Experience Level'].value_counts().plot.pie()
+plt.xlabel('Experience Level')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Experience Level for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+            ```
+            
+2024-07-22 10:36:51 [INFO] Executing Step 2: CodeCleaning
+2024-07-22 10:36:51 [INFO] Saving charts to C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\exports\charts\temp_chart.png
+2024-07-22 10:36:51 [INFO] 
+Code running:
+```
+tech_mahindra_candidates = dfs[0][dfs[0]['Client Name'] == 'Tech Mahindra']
+tech_mahindra_candidates['Job Title'].value_counts().plot.bar()
+plt.xlabel('Job Title')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Job Title for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+tech_mahindra_candidates['Experience Level'].value_counts().plot.pie()
+plt.xlabel('Experience Level')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Experience Level for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+        ```
+2024-07-22 10:36:51 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\indexes\range.py", line 417, in get_loc
+    raise KeyError(key)
+KeyError: 'Client Name'
+
+2024-07-22 10:36:51 [WARNING] Failed to execute code retrying with a correction framework [retry number: 2]
+2024-07-22 10:36:51 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-07-22 10:36:51 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-07-22 10:36:51 [INFO] Using prompt: <dataframe>
+dfs[0]:0x0
+
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the candidates for Tech Mahindra client 
+
+You generated this python code:
+tech_mahindra_candidates = dfs[0][dfs[0]['Client Name'] == 'Tech Mahindra']
+tech_mahindra_candidates['Job Title'].value_counts().plot.bar()
+plt.xlabel('Job Title')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Job Title for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+tech_mahindra_candidates['Experience Level'].value_counts().plot.pie()
+plt.xlabel('Experience Level')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Experience Level for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\indexes\range.py", line 417, in get_loc
+    raise KeyError(key)
+KeyError: 'Client Name'
+
+
+Fix the python code above and return the new python code:
+2024-07-22 10:36:51 [INFO] Executing Step 1: CodeGenerator
+2024-07-22 10:36:56 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:0x0
+
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the candidates for Tech Mahindra client 
+
+You generated this python code:
+tech_mahindra_candidates = dfs[0][dfs[0]['Client Name'] == 'Tech Mahindra']
+tech_mahindra_candidates['Job Title'].value_counts().plot.bar()
+plt.xlabel('Job Title')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Job Title for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+tech_mahindra_candidates['Experience Level'].value_counts().plot.pie()
+plt.xlabel('Experience Level')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Experience Level for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\indexes\range.py", line 417, in get_loc
+    raise KeyError(key)
+KeyError: 'Client Name'
+
+
+Fix the python code above and return the new python code:
+            
+2024-07-22 10:36:56 [INFO] Code generated:
+            ```
+            tech_mahindra_candidates = dfs[0][dfs[0]['Client'] == 'Tech Mahindra']
+tech_mahindra_candidates['Job Title'].value_counts().plot.bar()
+plt.xlabel('Job Title')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Job Title for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+tech_mahindra_candidates['Experience Level'].value_counts().plot.pie()
+plt.xlabel('Experience Level')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Experience Level for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+            ```
+            
+2024-07-22 10:36:56 [INFO] Executing Step 2: CodeCleaning
+2024-07-22 10:36:56 [INFO] Saving charts to C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\exports\charts\temp_chart.png
+2024-07-22 10:36:56 [INFO] 
+Code running:
+```
+tech_mahindra_candidates = dfs[0][dfs[0]['Client'] == 'Tech Mahindra']
+tech_mahindra_candidates['Job Title'].value_counts().plot.bar()
+plt.xlabel('Job Title')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Job Title for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+tech_mahindra_candidates['Experience Level'].value_counts().plot.pie()
+plt.xlabel('Experience Level')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Experience Level for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+        ```
+2024-07-22 10:36:56 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\indexes\range.py", line 417, in get_loc
+    raise KeyError(key)
+KeyError: 'Client'
+
+2024-07-22 10:36:56 [WARNING] Failed to execute code retrying with a correction framework [retry number: 3]
+2024-07-22 10:36:56 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-07-22 10:36:56 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-07-22 10:36:56 [INFO] Using prompt: <dataframe>
+dfs[0]:0x0
+
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the candidates for Tech Mahindra client 
+
+You generated this python code:
+tech_mahindra_candidates = dfs[0][dfs[0]['Client'] == 'Tech Mahindra']
+tech_mahindra_candidates['Job Title'].value_counts().plot.bar()
+plt.xlabel('Job Title')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Job Title for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+tech_mahindra_candidates['Experience Level'].value_counts().plot.pie()
+plt.xlabel('Experience Level')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Experience Level for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\indexes\range.py", line 417, in get_loc
+    raise KeyError(key)
+KeyError: 'Client'
+
+
+Fix the python code above and return the new python code:
+2024-07-22 10:36:56 [INFO] Executing Step 1: CodeGenerator
+2024-07-22 10:37:00 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:0x0
+
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the candidates for Tech Mahindra client 
+
+You generated this python code:
+tech_mahindra_candidates = dfs[0][dfs[0]['Client'] == 'Tech Mahindra']
+tech_mahindra_candidates['Job Title'].value_counts().plot.bar()
+plt.xlabel('Job Title')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Job Title for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+tech_mahindra_candidates['Experience Level'].value_counts().plot.pie()
+plt.xlabel('Experience Level')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Experience Level for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\indexes\range.py", line 417, in get_loc
+    raise KeyError(key)
+KeyError: 'Client'
+
+
+Fix the python code above and return the new python code:
+            
+2024-07-22 10:37:00 [INFO] Code generated:
+            ```
+            tech_mahindra_candidates = dfs[0][dfs[0]['Client Name'] == 'Tech Mahindra']
+tech_mahindra_candidates['Job Title'].value_counts().plot.bar()
+plt.xlabel('Job Title')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Job Title for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+tech_mahindra_candidates['Experience Level'].value_counts().plot.pie()
+plt.xlabel('Experience Level')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Experience Level for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+            ```
+            
+2024-07-22 10:37:00 [INFO] Executing Step 2: CodeCleaning
+2024-07-22 10:37:00 [INFO] Saving charts to C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\exports\charts\temp_chart.png
+2024-07-22 10:37:00 [INFO] 
+Code running:
+```
+tech_mahindra_candidates = dfs[0][dfs[0]['Client Name'] == 'Tech Mahindra']
+tech_mahindra_candidates['Job Title'].value_counts().plot.bar()
+plt.xlabel('Job Title')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Job Title for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+tech_mahindra_candidates['Experience Level'].value_counts().plot.pie()
+plt.xlabel('Experience Level')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates by Experience Level for Tech Mahindra Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+        ```
+2024-07-22 10:37:00 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandas\core\indexes\range.py", line 417, in get_loc
+    raise KeyError(key)
+KeyError: 'Client Name'
+
+2024-07-22 10:37:00 [ERROR] Pipeline failed on step 6: 'Client Name'
+2024-07-22 11:25:51 [INFO] Question: Generate relevant graphs for this dataset based on the query: Give me the number of candidates with HCL client
+2024-07-22 11:25:51 [INFO] Running PandasAI with google-gemini LLM...
+2024-07-22 11:25:51 [INFO] Prompt ID: bf685af6-bda3-49f0-90b3-03d0ea2276fe
+2024-07-22 11:25:51 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-22 11:25:52 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-22 11:25:52 [INFO] Executing Step 1: CacheLookup
+2024-07-22 11:25:52 [INFO] Executing Step 2: PromptGeneration
+2024-07-22 11:25:52 [INFO] Using prompt: <dataframe>
+dfs[0]:4485x26
+contract_id,candidate_id,candidate_name,ethnicity,candidate_country,candidate_state,candidate_city,gender,primary_skills,secondary_skills,domain,client,end_client,start_date,end_date,job_title,vendor_country_id,vendor_state_id,vendor_city_id,project_country,project_state,project_city,contract_status,pay_rate,pay_rate_basis,pay_rate_currency
+15338,10332.0,628f5e270c918fedc5fc,Two or more races,CN,DE,Duncanville,Male,,"J2EE,Java,SQL",,HCL,Department of Human Services,2015-06-22 09:30:00,,Security Engineer,6B,,,,NE,West Boylston,Dropped,4.0,Annum,CAD
+10381,7506.0,d9481efa03a179a357e5,Hispanic or Latino,,,Whitfield County,Female,"AJAX,Angular JS,JavaScript,JQuery",Sterling,Education,HCL,,2020-06-09 09:30:00,2016-08-29 09:30:00,,,NE,Plano,MEX,,,In-Process,20.0,,
+9755,9838.0,8d111a9ceea3b5c6cc9a,,CL,WI,,,"Change management,Data domain,EMC Avamar,EMC NetWorker,Program development,TSM,Vendor Management",,Telecommunications,HCL,DelMonte,2015-05-16 09:30:00,2015-05-15 09:30:00,Informatica Technical Lead,8,ME,Norwalk,England,MA,Elk River,In-Active,75.0,Hourly,USD
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the number of candidates with HCL client
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-22 11:25:52 [INFO] Executing Step 3: CodeGenerator
+2024-07-22 11:25:55 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:4485x26
+contract_id,candidate_id,candidate_name,ethnicity,candidate_country,candidate_state,candidate_city,gender,primary_skills,secondary_skills,domain,client,end_client,start_date,end_date,job_title,vendor_country_id,vendor_state_id,vendor_city_id,project_country,project_state,project_city,contract_status,pay_rate,pay_rate_basis,pay_rate_currency
+15338,10332.0,628f5e270c918fedc5fc,Two or more races,CN,DE,Duncanville,Male,,"J2EE,Java,SQL",,HCL,Department of Human Services,2015-06-22 09:30:00,,Security Engineer,6B,,,,NE,West Boylston,Dropped,4.0,Annum,CAD
+10381,7506.0,d9481efa03a179a357e5,Hispanic or Latino,,,Whitfield County,Female,"AJAX,Angular JS,JavaScript,JQuery",Sterling,Education,HCL,,2020-06-09 09:30:00,2016-08-29 09:30:00,,,NE,Plano,MEX,,,In-Process,20.0,,
+9755,9838.0,8d111a9ceea3b5c6cc9a,,CL,WI,,,"Change management,Data domain,EMC Avamar,EMC NetWorker,Program development,TSM,Vendor Management",,Telecommunications,HCL,DelMonte,2015-05-16 09:30:00,2015-05-15 09:30:00,Informatica Technical Lead,8,ME,Norwalk,England,MA,Elk River,In-Active,75.0,Hourly,USD
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the number of candidates with HCL client
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-07-22 11:25:55 [INFO] Code generated:
+            ```
+            import pandas as pd
+import matplotlib.pyplot as plt
+
+# Write code here
+
+# Get the number of candidates with HCL client
+num_candidates_hcl = dfs[0].query("client == 'HCL'")["candidate_id"].count()
+
+# Create a bar chart of the number of candidates with HCL client
+plt.bar("HCL", num_candidates_hcl)
+plt.xlabel("Client")
+plt.ylabel("Number of Candidates")
+plt.title("Number of Candidates with HCL Client")
+plt.savefig("num_candidates_hcl.png")
+
+# Declare result var: 
+result = { "type": "plot", "value": "num_candidates_hcl.png" }
+            ```
+            
+2024-07-22 11:25:55 [INFO] Executing Step 4: CachePopulation
+2024-07-22 11:25:55 [INFO] Executing Step 5: CodeCleaning
+2024-07-22 11:25:55 [INFO] Saving charts to C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\exports\charts\temp_chart.png
+2024-07-22 11:25:55 [INFO] 
+Code running:
+```
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+        ```
+2024-07-22 11:25:55 [INFO] Executing Step 6: CodeExecution
+2024-07-22 11:25:56 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+2024-07-22 11:25:56 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-07-22 11:25:56 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-07-22 11:25:56 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-07-22 11:25:56 [INFO] Using prompt: <dataframe>
+dfs[0]:4485x26
+contract_id,candidate_id,candidate_name,ethnicity,candidate_country,candidate_state,candidate_city,gender,primary_skills,secondary_skills,domain,client,end_client,start_date,end_date,job_title,vendor_country_id,vendor_state_id,vendor_city_id,project_country,project_state,project_city,contract_status,pay_rate,pay_rate_basis,pay_rate_currency
+15338,10332.0,628f5e270c918fedc5fc,Two or more races,CN,DE,Duncanville,Male,,"J2EE,Java,SQL",,HCL,Department of Human Services,2015-06-22 09:30:00,,Security Engineer,6B,,,,NE,West Boylston,Dropped,4.0,Annum,CAD
+10381,7506.0,d9481efa03a179a357e5,Hispanic or Latino,,,Whitfield County,Female,"AJAX,Angular JS,JavaScript,JQuery",Sterling,Education,HCL,,2020-06-09 09:30:00,2016-08-29 09:30:00,,,NE,Plano,MEX,,,In-Process,20.0,,
+9755,9838.0,8d111a9ceea3b5c6cc9a,,CL,WI,,,"Change management,Data domain,EMC Avamar,EMC NetWorker,Program development,TSM,Vendor Management",,Telecommunications,HCL,DelMonte,2015-05-16 09:30:00,2015-05-15 09:30:00,Informatica Technical Lead,8,ME,Norwalk,England,MA,Elk River,In-Active,75.0,Hourly,USD
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the number of candidates with HCL client
+
+You generated this python code:
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+
+Fix the python code above and return the new python code:
+2024-07-22 11:25:56 [INFO] Executing Step 1: CodeGenerator
+2024-07-22 11:25:59 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:4485x26
+contract_id,candidate_id,candidate_name,ethnicity,candidate_country,candidate_state,candidate_city,gender,primary_skills,secondary_skills,domain,client,end_client,start_date,end_date,job_title,vendor_country_id,vendor_state_id,vendor_city_id,project_country,project_state,project_city,contract_status,pay_rate,pay_rate_basis,pay_rate_currency
+15338,10332.0,628f5e270c918fedc5fc,Two or more races,CN,DE,Duncanville,Male,,"J2EE,Java,SQL",,HCL,Department of Human Services,2015-06-22 09:30:00,,Security Engineer,6B,,,,NE,West Boylston,Dropped,4.0,Annum,CAD
+10381,7506.0,d9481efa03a179a357e5,Hispanic or Latino,,,Whitfield County,Female,"AJAX,Angular JS,JavaScript,JQuery",Sterling,Education,HCL,,2020-06-09 09:30:00,2016-08-29 09:30:00,,,NE,Plano,MEX,,,In-Process,20.0,,
+9755,9838.0,8d111a9ceea3b5c6cc9a,,CL,WI,,,"Change management,Data domain,EMC Avamar,EMC NetWorker,Program development,TSM,Vendor Management",,Telecommunications,HCL,DelMonte,2015-05-16 09:30:00,2015-05-15 09:30:00,Informatica Technical Lead,8,ME,Norwalk,England,MA,Elk River,In-Active,75.0,Hourly,USD
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the number of candidates with HCL client
+
+You generated this python code:
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+
+Fix the python code above and return the new python code:
+            
+2024-07-22 11:25:59 [INFO] Code generated:
+            ```
+            import matplotlib.pyplot as plt
+
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+            ```
+            
+2024-07-22 11:25:59 [INFO] Executing Step 2: CodeCleaning
+2024-07-22 11:25:59 [INFO] Saving charts to C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\exports\charts\temp_chart.png
+2024-07-22 11:25:59 [INFO] 
+Code running:
+```
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+        ```
+2024-07-22 11:25:59 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+2024-07-22 11:25:59 [WARNING] Failed to execute code retrying with a correction framework [retry number: 2]
+2024-07-22 11:25:59 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-07-22 11:25:59 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-07-22 11:25:59 [INFO] Using prompt: <dataframe>
+dfs[0]:4485x26
+contract_id,candidate_id,candidate_name,ethnicity,candidate_country,candidate_state,candidate_city,gender,primary_skills,secondary_skills,domain,client,end_client,start_date,end_date,job_title,vendor_country_id,vendor_state_id,vendor_city_id,project_country,project_state,project_city,contract_status,pay_rate,pay_rate_basis,pay_rate_currency
+15338,10332.0,628f5e270c918fedc5fc,Two or more races,CN,DE,Duncanville,Male,,"J2EE,Java,SQL",,HCL,Department of Human Services,2015-06-22 09:30:00,,Security Engineer,6B,,,,NE,West Boylston,Dropped,4.0,Annum,CAD
+10381,7506.0,d9481efa03a179a357e5,Hispanic or Latino,,,Whitfield County,Female,"AJAX,Angular JS,JavaScript,JQuery",Sterling,Education,HCL,,2020-06-09 09:30:00,2016-08-29 09:30:00,,,NE,Plano,MEX,,,In-Process,20.0,,
+9755,9838.0,8d111a9ceea3b5c6cc9a,,CL,WI,,,"Change management,Data domain,EMC Avamar,EMC NetWorker,Program development,TSM,Vendor Management",,Telecommunications,HCL,DelMonte,2015-05-16 09:30:00,2015-05-15 09:30:00,Informatica Technical Lead,8,ME,Norwalk,England,MA,Elk River,In-Active,75.0,Hourly,USD
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the number of candidates with HCL client
+
+You generated this python code:
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+
+Fix the python code above and return the new python code:
+2024-07-22 11:25:59 [INFO] Executing Step 1: CodeGenerator
+2024-07-22 11:26:02 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:4485x26
+contract_id,candidate_id,candidate_name,ethnicity,candidate_country,candidate_state,candidate_city,gender,primary_skills,secondary_skills,domain,client,end_client,start_date,end_date,job_title,vendor_country_id,vendor_state_id,vendor_city_id,project_country,project_state,project_city,contract_status,pay_rate,pay_rate_basis,pay_rate_currency
+15338,10332.0,628f5e270c918fedc5fc,Two or more races,CN,DE,Duncanville,Male,,"J2EE,Java,SQL",,HCL,Department of Human Services,2015-06-22 09:30:00,,Security Engineer,6B,,,,NE,West Boylston,Dropped,4.0,Annum,CAD
+10381,7506.0,d9481efa03a179a357e5,Hispanic or Latino,,,Whitfield County,Female,"AJAX,Angular JS,JavaScript,JQuery",Sterling,Education,HCL,,2020-06-09 09:30:00,2016-08-29 09:30:00,,,NE,Plano,MEX,,,In-Process,20.0,,
+9755,9838.0,8d111a9ceea3b5c6cc9a,,CL,WI,,,"Change management,Data domain,EMC Avamar,EMC NetWorker,Program development,TSM,Vendor Management",,Telecommunications,HCL,DelMonte,2015-05-16 09:30:00,2015-05-15 09:30:00,Informatica Technical Lead,8,ME,Norwalk,England,MA,Elk River,In-Active,75.0,Hourly,USD
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the number of candidates with HCL client
+
+You generated this python code:
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+
+Fix the python code above and return the new python code:
+            
+2024-07-22 11:26:02 [INFO] Code generated:
+            ```
+            import matplotlib.pyplot as plt
+
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+            ```
+            
+2024-07-22 11:26:02 [INFO] Executing Step 2: CodeCleaning
+2024-07-22 11:26:02 [INFO] Saving charts to C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\exports\charts\temp_chart.png
+2024-07-22 11:26:02 [INFO] 
+Code running:
+```
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+        ```
+2024-07-22 11:26:02 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+2024-07-22 11:26:02 [WARNING] Failed to execute code retrying with a correction framework [retry number: 3]
+2024-07-22 11:26:02 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-07-22 11:26:02 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-07-22 11:26:02 [INFO] Using prompt: <dataframe>
+dfs[0]:4485x26
+contract_id,candidate_id,candidate_name,ethnicity,candidate_country,candidate_state,candidate_city,gender,primary_skills,secondary_skills,domain,client,end_client,start_date,end_date,job_title,vendor_country_id,vendor_state_id,vendor_city_id,project_country,project_state,project_city,contract_status,pay_rate,pay_rate_basis,pay_rate_currency
+15338,10332.0,628f5e270c918fedc5fc,Two or more races,CN,DE,Duncanville,Male,,"J2EE,Java,SQL",,HCL,Department of Human Services,2015-06-22 09:30:00,,Security Engineer,6B,,,,NE,West Boylston,Dropped,4.0,Annum,CAD
+10381,7506.0,d9481efa03a179a357e5,Hispanic or Latino,,,Whitfield County,Female,"AJAX,Angular JS,JavaScript,JQuery",Sterling,Education,HCL,,2020-06-09 09:30:00,2016-08-29 09:30:00,,,NE,Plano,MEX,,,In-Process,20.0,,
+9755,9838.0,8d111a9ceea3b5c6cc9a,,CL,WI,,,"Change management,Data domain,EMC Avamar,EMC NetWorker,Program development,TSM,Vendor Management",,Telecommunications,HCL,DelMonte,2015-05-16 09:30:00,2015-05-15 09:30:00,Informatica Technical Lead,8,ME,Norwalk,England,MA,Elk River,In-Active,75.0,Hourly,USD
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the number of candidates with HCL client
+
+You generated this python code:
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+
+Fix the python code above and return the new python code:
+2024-07-22 11:26:02 [INFO] Executing Step 1: CodeGenerator
+2024-07-22 11:26:06 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:4485x26
+contract_id,candidate_id,candidate_name,ethnicity,candidate_country,candidate_state,candidate_city,gender,primary_skills,secondary_skills,domain,client,end_client,start_date,end_date,job_title,vendor_country_id,vendor_state_id,vendor_city_id,project_country,project_state,project_city,contract_status,pay_rate,pay_rate_basis,pay_rate_currency
+15338,10332.0,628f5e270c918fedc5fc,Two or more races,CN,DE,Duncanville,Male,,"J2EE,Java,SQL",,HCL,Department of Human Services,2015-06-22 09:30:00,,Security Engineer,6B,,,,NE,West Boylston,Dropped,4.0,Annum,CAD
+10381,7506.0,d9481efa03a179a357e5,Hispanic or Latino,,,Whitfield County,Female,"AJAX,Angular JS,JavaScript,JQuery",Sterling,Education,HCL,,2020-06-09 09:30:00,2016-08-29 09:30:00,,,NE,Plano,MEX,,,In-Process,20.0,,
+9755,9838.0,8d111a9ceea3b5c6cc9a,,CL,WI,,,"Change management,Data domain,EMC Avamar,EMC NetWorker,Program development,TSM,Vendor Management",,Telecommunications,HCL,DelMonte,2015-05-16 09:30:00,2015-05-15 09:30:00,Informatica Technical Lead,8,ME,Norwalk,England,MA,Elk River,In-Active,75.0,Hourly,USD
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the number of candidates with HCL client
+
+You generated this python code:
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+
+Fix the python code above and return the new python code:
+            
+2024-07-22 11:26:06 [INFO] Code generated:
+            ```
+            import matplotlib.pyplot as plt
+
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+            ```
+            
+2024-07-22 11:26:06 [INFO] Executing Step 2: CodeCleaning
+2024-07-22 11:26:06 [INFO] Saving charts to C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\exports\charts\temp_chart.png
+2024-07-22 11:26:06 [INFO] 
+Code running:
+```
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+        ```
+2024-07-22 11:26:06 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+2024-07-22 11:26:06 [ERROR] Pipeline failed on step 6: Value type <class 'str'> must match with type plot
+2024-07-22 12:14:44 [INFO] Question: Generate relevant graphs for this dataset based on the query: Give me the number of candidates with HCL client
+2024-07-22 12:14:44 [INFO] Running PandasAI with google-gemini LLM...
+2024-07-22 12:14:44 [INFO] Prompt ID: ae9af9f8-9965-4d17-9a8b-3a5f0d297764
+2024-07-22 12:14:44 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-22 12:14:44 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-22 12:14:44 [INFO] Executing Step 1: CacheLookup
+2024-07-22 12:14:44 [INFO] Using cached response
+2024-07-22 12:14:44 [INFO] Executing Step 2: PromptGeneration
+2024-07-22 12:14:44 [INFO] Executing Step 2: Skipping...
+2024-07-22 12:14:44 [INFO] Executing Step 3: CodeGenerator
+2024-07-22 12:14:44 [INFO] Executing Step 3: Skipping...
+2024-07-22 12:14:44 [INFO] Executing Step 4: CachePopulation
+2024-07-22 12:14:44 [INFO] Executing Step 4: Skipping...
+2024-07-22 12:14:44 [INFO] Executing Step 5: CodeCleaning
+2024-07-22 12:14:44 [INFO] Saving charts to C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\exports\charts\temp_chart.png
+2024-07-22 12:14:44 [INFO] 
+Code running:
+```
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+        ```
+2024-07-22 12:14:44 [INFO] Executing Step 6: CodeExecution
+2024-07-22 12:14:44 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+2024-07-22 12:14:44 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-07-22 12:14:44 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-07-22 12:14:44 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-07-22 12:14:44 [INFO] Using prompt: <dataframe>
+dfs[0]:4485x26
+contract_id,candidate_id,candidate_name,ethnicity,candidate_country,candidate_state,candidate_city,gender,primary_skills,secondary_skills,domain,client,end_client,start_date,end_date,job_title,vendor_country_id,vendor_state_id,vendor_city_id,project_country,project_state,project_city,contract_status,pay_rate,pay_rate_basis,pay_rate_currency
+5698,14245.0,2dd6fd41a68e16e22966,,MX,MH,Morris County,,,,Biotechnology,HCL,Netapp,2016-02-26 10:30:00,2014-04-21 09:30:00,VMware Engineer,ve,IL,Norcross,CR,AB,Davenport,Dropped,5.0,Annum,CAD
+7565,8676.0,c6dcf751f80ba0053963,Asian,IN,LA,,Female,"SQL,T-SQL","COBOL,JCL",,HCL,CEB (Corporate Executive Board),2016-03-07 10:30:00,2022-02-10 10:30:00,,Dr,,,,MT,,In-Process,69.0,Hourly,
+11229,9581.0,1bc156308588e4b06bd7,White,,,Las Vegas,Male,"Configuration,DB),install,OEM Agent,Perl,UNIX shell scripting","Angular JS,React.js",Technology,HCL,,2015-05-26 09:30:00,,Workday Integration technical Consultant,,FL,Branchburg,US,,Detroit,Active,83.0,,USD
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the number of candidates with HCL client
+
+You generated this python code:
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+
+Fix the python code above and return the new python code:
+2024-07-22 12:14:44 [INFO] Executing Step 1: CodeGenerator
+2024-07-22 12:14:48 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:4485x26
+contract_id,candidate_id,candidate_name,ethnicity,candidate_country,candidate_state,candidate_city,gender,primary_skills,secondary_skills,domain,client,end_client,start_date,end_date,job_title,vendor_country_id,vendor_state_id,vendor_city_id,project_country,project_state,project_city,contract_status,pay_rate,pay_rate_basis,pay_rate_currency
+5698,14245.0,2dd6fd41a68e16e22966,,MX,MH,Morris County,,,,Biotechnology,HCL,Netapp,2016-02-26 10:30:00,2014-04-21 09:30:00,VMware Engineer,ve,IL,Norcross,CR,AB,Davenport,Dropped,5.0,Annum,CAD
+7565,8676.0,c6dcf751f80ba0053963,Asian,IN,LA,,Female,"SQL,T-SQL","COBOL,JCL",,HCL,CEB (Corporate Executive Board),2016-03-07 10:30:00,2022-02-10 10:30:00,,Dr,,,,MT,,In-Process,69.0,Hourly,
+11229,9581.0,1bc156308588e4b06bd7,White,,,Las Vegas,Male,"Configuration,DB),install,OEM Agent,Perl,UNIX shell scripting","Angular JS,React.js",Technology,HCL,,2015-05-26 09:30:00,,Workday Integration technical Consultant,,FL,Branchburg,US,,Detroit,Active,83.0,,USD
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the number of candidates with HCL client
+
+You generated this python code:
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+
+Fix the python code above and return the new python code:
+            
+2024-07-22 12:14:48 [INFO] Code generated:
+            ```
+            import matplotlib.pyplot as plt
+
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+            ```
+            
+2024-07-22 12:14:48 [INFO] Executing Step 2: CodeCleaning
+2024-07-22 12:14:48 [INFO] Saving charts to C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\exports\charts\temp_chart.png
+2024-07-22 12:14:48 [INFO] 
+Code running:
+```
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+        ```
+2024-07-22 12:14:48 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+2024-07-22 12:14:48 [WARNING] Failed to execute code retrying with a correction framework [retry number: 2]
+2024-07-22 12:14:48 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-07-22 12:14:48 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-07-22 12:14:48 [INFO] Using prompt: <dataframe>
+dfs[0]:4485x26
+contract_id,candidate_id,candidate_name,ethnicity,candidate_country,candidate_state,candidate_city,gender,primary_skills,secondary_skills,domain,client,end_client,start_date,end_date,job_title,vendor_country_id,vendor_state_id,vendor_city_id,project_country,project_state,project_city,contract_status,pay_rate,pay_rate_basis,pay_rate_currency
+5698,14245.0,2dd6fd41a68e16e22966,,MX,MH,Morris County,,,,Biotechnology,HCL,Netapp,2016-02-26 10:30:00,2014-04-21 09:30:00,VMware Engineer,ve,IL,Norcross,CR,AB,Davenport,Dropped,5.0,Annum,CAD
+7565,8676.0,c6dcf751f80ba0053963,Asian,IN,LA,,Female,"SQL,T-SQL","COBOL,JCL",,HCL,CEB (Corporate Executive Board),2016-03-07 10:30:00,2022-02-10 10:30:00,,Dr,,,,MT,,In-Process,69.0,Hourly,
+11229,9581.0,1bc156308588e4b06bd7,White,,,Las Vegas,Male,"Configuration,DB),install,OEM Agent,Perl,UNIX shell scripting","Angular JS,React.js",Technology,HCL,,2015-05-26 09:30:00,,Workday Integration technical Consultant,,FL,Branchburg,US,,Detroit,Active,83.0,,USD
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the number of candidates with HCL client
+
+You generated this python code:
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+
+Fix the python code above and return the new python code:
+2024-07-22 12:14:48 [INFO] Executing Step 1: CodeGenerator
+2024-07-22 12:14:51 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:4485x26
+contract_id,candidate_id,candidate_name,ethnicity,candidate_country,candidate_state,candidate_city,gender,primary_skills,secondary_skills,domain,client,end_client,start_date,end_date,job_title,vendor_country_id,vendor_state_id,vendor_city_id,project_country,project_state,project_city,contract_status,pay_rate,pay_rate_basis,pay_rate_currency
+5698,14245.0,2dd6fd41a68e16e22966,,MX,MH,Morris County,,,,Biotechnology,HCL,Netapp,2016-02-26 10:30:00,2014-04-21 09:30:00,VMware Engineer,ve,IL,Norcross,CR,AB,Davenport,Dropped,5.0,Annum,CAD
+7565,8676.0,c6dcf751f80ba0053963,Asian,IN,LA,,Female,"SQL,T-SQL","COBOL,JCL",,HCL,CEB (Corporate Executive Board),2016-03-07 10:30:00,2022-02-10 10:30:00,,Dr,,,,MT,,In-Process,69.0,Hourly,
+11229,9581.0,1bc156308588e4b06bd7,White,,,Las Vegas,Male,"Configuration,DB),install,OEM Agent,Perl,UNIX shell scripting","Angular JS,React.js",Technology,HCL,,2015-05-26 09:30:00,,Workday Integration technical Consultant,,FL,Branchburg,US,,Detroit,Active,83.0,,USD
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the number of candidates with HCL client
+
+You generated this python code:
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+
+Fix the python code above and return the new python code:
+            
+2024-07-22 12:14:51 [INFO] Code generated:
+            ```
+            import matplotlib.pyplot as plt
+
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+            ```
+            
+2024-07-22 12:14:51 [INFO] Executing Step 2: CodeCleaning
+2024-07-22 12:14:51 [INFO] Saving charts to C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\exports\charts\temp_chart.png
+2024-07-22 12:14:51 [INFO] 
+Code running:
+```
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+        ```
+2024-07-22 12:14:51 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+2024-07-22 12:14:51 [WARNING] Failed to execute code retrying with a correction framework [retry number: 3]
+2024-07-22 12:14:51 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-07-22 12:14:51 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-07-22 12:14:51 [INFO] Using prompt: <dataframe>
+dfs[0]:4485x26
+contract_id,candidate_id,candidate_name,ethnicity,candidate_country,candidate_state,candidate_city,gender,primary_skills,secondary_skills,domain,client,end_client,start_date,end_date,job_title,vendor_country_id,vendor_state_id,vendor_city_id,project_country,project_state,project_city,contract_status,pay_rate,pay_rate_basis,pay_rate_currency
+5698,14245.0,2dd6fd41a68e16e22966,,MX,MH,Morris County,,,,Biotechnology,HCL,Netapp,2016-02-26 10:30:00,2014-04-21 09:30:00,VMware Engineer,ve,IL,Norcross,CR,AB,Davenport,Dropped,5.0,Annum,CAD
+7565,8676.0,c6dcf751f80ba0053963,Asian,IN,LA,,Female,"SQL,T-SQL","COBOL,JCL",,HCL,CEB (Corporate Executive Board),2016-03-07 10:30:00,2022-02-10 10:30:00,,Dr,,,,MT,,In-Process,69.0,Hourly,
+11229,9581.0,1bc156308588e4b06bd7,White,,,Las Vegas,Male,"Configuration,DB),install,OEM Agent,Perl,UNIX shell scripting","Angular JS,React.js",Technology,HCL,,2015-05-26 09:30:00,,Workday Integration technical Consultant,,FL,Branchburg,US,,Detroit,Active,83.0,,USD
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the number of candidates with HCL client
+
+You generated this python code:
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+
+Fix the python code above and return the new python code:
+2024-07-22 12:14:51 [INFO] Executing Step 1: CodeGenerator
+2024-07-22 12:14:55 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:4485x26
+contract_id,candidate_id,candidate_name,ethnicity,candidate_country,candidate_state,candidate_city,gender,primary_skills,secondary_skills,domain,client,end_client,start_date,end_date,job_title,vendor_country_id,vendor_state_id,vendor_city_id,project_country,project_state,project_city,contract_status,pay_rate,pay_rate_basis,pay_rate_currency
+5698,14245.0,2dd6fd41a68e16e22966,,MX,MH,Morris County,,,,Biotechnology,HCL,Netapp,2016-02-26 10:30:00,2014-04-21 09:30:00,VMware Engineer,ve,IL,Norcross,CR,AB,Davenport,Dropped,5.0,Annum,CAD
+7565,8676.0,c6dcf751f80ba0053963,Asian,IN,LA,,Female,"SQL,T-SQL","COBOL,JCL",,HCL,CEB (Corporate Executive Board),2016-03-07 10:30:00,2022-02-10 10:30:00,,Dr,,,,MT,,In-Process,69.0,Hourly,
+11229,9581.0,1bc156308588e4b06bd7,White,,,Las Vegas,Male,"Configuration,DB),install,OEM Agent,Perl,UNIX shell scripting","Angular JS,React.js",Technology,HCL,,2015-05-26 09:30:00,,Workday Integration technical Consultant,,FL,Branchburg,US,,Detroit,Active,83.0,,USD
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Generate relevant graphs for this dataset based on the query: Give me the number of candidates with HCL client
+
+You generated this python code:
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+
+Fix the python code above and return the new python code:
+            
+2024-07-22 12:14:55 [INFO] Code generated:
+            ```
+            import matplotlib.pyplot as plt
+
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+            ```
+            
+2024-07-22 12:14:55 [INFO] Executing Step 2: CodeCleaning
+2024-07-22 12:14:55 [INFO] Saving charts to C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\exports\charts\temp_chart.png
+2024-07-22 12:14:55 [INFO] 
+Code running:
+```
+num_candidates_hcl = dfs[0].query("client == 'HCL'")['candidate_id'].count()
+plt.bar('HCL', num_candidates_hcl)
+plt.xlabel('Client')
+plt.ylabel('Number of Candidates')
+plt.title('Number of Candidates with HCL Client')
+plt.savefig('C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/HP/OneDrive - Manipal Academy of Higher Education/Documents/dumps/chatbot/exports/charts/temp_chart.png'}
+        ```
+2024-07-22 12:14:55 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive - Manipal Academy of Higher Education\Documents\dumps\chatbot\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+2024-07-22 12:14:55 [ERROR] Pipeline failed on step 6: Value type <class 'str'> must match with type plot
