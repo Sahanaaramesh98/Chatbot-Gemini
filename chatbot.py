@@ -6,7 +6,7 @@ import os
 import altair as alt
 import re
 # SETTING UP LLM
-api_key = 'AIzaSyCl2n0vpx49oOC-PqYBIuzbptD008L2ZW4'
+api_key = 'GOOGLE_API_KEY'
 genai.configure(api_key=api_key)
 safe = [
     {
